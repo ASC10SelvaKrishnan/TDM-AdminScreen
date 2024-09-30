@@ -1,21 +1,87 @@
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" (click)="onClick()" href="home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/reports">Reports</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin-setting">Admin-Settings</a>
-          </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+      <p class="navbar-brand">Test Data Management</p>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="bi bi-question-circle"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="bi bi-bell"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a>
+              </li>
+          </ul>
       </div>
-    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="wrapper">
+  <nav id="sidebar" class="bg-primary">
+      <ul class="list-unstyled components">
+          <li class="active">
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-house"></i>
+                  <span class="menu-text">Home</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="fas fa-search"></i>
+                  <span class="menu-text">Search For Data</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-file-earmark-plus"></i>
+                  <span class="menu-text">Sumbit New Data request</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-file-earmark-text"></i>
+                  <span class="menu-text">Project Data Management</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-file-earmark-fill"></i>
+                  <span class="menu-text">Litmus</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-file-earmark-check"></i>
+                  <span class="menu-text">Data Reservation</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-file-earmark-bar-graph"></i>
+                  <span class="menu-text">Reports</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-gear"></i>
+                  <span class="menu-text">Admin Settings</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="d-flex align-items-center">
+                  <i class="bi bi-person-gear"></i>
+                  <span class="menu-text">User Control</span>
+              </a>
+          </li>
+      </ul>
   </nav>
+  
+  <!-- Content -->
+  <div id="content">
+      <div class="container">
+          <h2>Content Area</h2>
+      </div>
+  </div>
+</div>

@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-setting.component.scss']
 })
 export class AdminSettingComponent {
+  activeControl: string = 'regionControl';
 
+  constructor(){}
+  
+  ngOnInit(){}
+
+  changeControl(Control: string) {
+    this.activeControl = Control;
+  }
 }

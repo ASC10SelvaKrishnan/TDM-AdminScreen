@@ -1,1 +1,242 @@
-<p>admin-setting works!</p>
+
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/TDM-AdminScreen/src/app/home/home.component.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Admin Settings</li>
+        </ol>
+    </nav>
+
+    <div class="Heading">
+        <div class="admin">
+            <p><strong>Admin Settings</strong></p>
+        </div>
+    </div>
+
+    <div class="container-admin">
+        <div class="navbar">
+            <div class="nav-inside">
+                <!-- Radio buttons to switch between Region Control and Data Request Control -->
+                <input type="radio" id="regionControl" name="nav" [checked]="activeControl === 'regionControl'" (change)="changeControl('regionControl')">
+                <label for="regionControl">Region Control</label>
+    
+                <input type="radio" id="dataRequestControl" name="nav" [checked]="activeControl === 'dataRequestControl'" (change)="changeControl('dataRequestControl')">
+                <label for="dataRequestControl">Data Request Control</label>
+            </div>
+        </div>
+    
+        <!-- Conditionally show Region Control section -->
+        <div *ngIf="activeControl === 'regionControl'" id="regionContent" class="content-section active">
+            <!-- Content 1 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item center">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item right">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Content 2 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item center">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item right">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Content 3 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item center">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item right">
+                        <p>TENV1</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Conditionally show Data Request Control section -->
+        <div *ngIf="activeControl === 'dataRequestControl'" id="dataRequestContent" class="content-section active">
+            <!-- Outer Content Group -->
+            <div class="outer">
+                <div class="topic">
+                    <h5>Group</h5>
+                </div>
+            </div>
+    
+            <!-- Content 4 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left">
+                        <p>Terminate</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item center">
+                        <p>Reinstate</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item right">
+                        <p>Benefit Change</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Content 5 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left" style="gap: 25px;">
+                        <p>Copy Group</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Outer Content Members Group -->
+            <div class="outer">
+                <div class="topic">
+                    <h5>Members</h5>
+                </div>
+            </div>
+    
+            <!-- Content 6 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left">
+                        <p>Terminate</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item center">
+                        <p>Reinstate</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="setting-item right">
+                        <p>Benefit Change</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Content 7 -->
+            <div class="content">
+                <div class="setting-group">
+                    <div class="setting-item left" style="gap: 25px;">
+                        <p>Copy Group</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider">
+                                <span class="switch-label"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

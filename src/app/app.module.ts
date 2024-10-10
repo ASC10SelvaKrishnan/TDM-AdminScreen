@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AdminSettingComponent } from './admin-setting/admin-setting.component';
 import { ReportsComponent } from './reports/reports.component';
+import { NgChartsModule } from 'ng2-charts';
 import { UserControlComponent } from './user-control/user-control.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UserControlComponent } from './user-control/user-control.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

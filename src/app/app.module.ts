@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AdminSettingComponent } from './admin-setting/admin-setting.component';
 import { ReportsComponent } from './reports/reports.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReportsComponent } from './reports/reports.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminSettingComponent } from './admin-setting/admin-setting.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NgChartsModule } from 'ng2-charts';
+import { UserControlComponent } from './user-control/user-control.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NgChartsModule } from 'ng2-charts';
     NavComponent,
     HomeComponent,
     AdminSettingComponent,
-    ReportsComponent
+    ReportsComponent,
+    UserControlComponent
   ],
   imports: [
     BrowserModule,

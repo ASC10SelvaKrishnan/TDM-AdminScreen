@@ -1,0 +1,241 @@
+.breadcrumb {
+    padding: 10px;
+    margin-left: 60px;
+    margin-bottom: 0;
+    margin-top: 60px;
+}
+
+.breadcrumb-item a {
+    color: #009688;
+    text-decoration: none !important;
+}
+
+.Heading {
+    color: rgb(56, 76, 143);
+    text-align: center;
+    align-items: center;
+}
+
+.admin strong {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.admin strong::after {
+    content: '';
+    display: block;
+    width: 6%;
+    height: 2px;
+    background-color: rgb(56, 76, 143);
+    margin: 0 auto;
+    margin-top: 2px;
+}
+
+.navbar {
+    height: 45px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+    background-color: #f0f0f0;
+}
+
+.navbar,
+.setting-group {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+.nav-inside {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100%;
+    gap: 20px;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.navbar a:hover,
+.navbar input:checked + label {
+    background-color: #f7f6f6;
+    color: #009688;
+    border-bottom: 2px solid #009688;
+    height: auto;
+    width: auto;
+    padding: 6px;
+}
+
+
+.rule-table-container {
+    margin-left: 60px;
+    margin-right: 30px;
+    margin-top: 30px;
+    background-color: white;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .rule-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-header th {
+    background-color: #0d3559;
+    color: white;
+    padding: 10px;
+    padding-left: 5px;
+    text-align: left;
+    position: relative;
+  }
+  
+  .table-header th i {
+    margin-left: 50px;
+  }
+  
+  .rule-table td {
+    padding: 5px;
+    border-bottom: 3px solid #ddd;
+  }
+  
+  thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    align-content: center;
+  }
+  
+  .action-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0d3559;
+  }
+  
+  .bi-pencil-square,
+  .bi-trash {
+    font-size: 18px;
+  }
+  
+  .pagination-controls-container {
+    display: flex;
+    justify-content: end;
+    align-items: center; 
+    margin-top: 10px;
+  }
+  
+  .items-per-page {
+    display: flex;
+    align-items: center;
+  }
+  
+  .items-per-page label {
+    margin-right: 10px;
+  }
+  
+  .table-dark {
+    --bs-table-bg: #c0dce0;
+    --bs-table-color: #000;
+  }
+  
+  .table-light {
+    --bs-table-bg: white;
+    --bs-table-color: #000;
+  }
+
+  
+  /* Pagination Styles */
+  .pagination {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+  }
+  
+  .pagination li a {
+    color: #0d3559;
+    background-color: #f0f8ff;
+    padding: 8px 12px;
+    border-radius: 50%;
+    border: 1px solid #0d3559;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination li a i {
+    font-size: 14px;
+  }
+  
+  .pagination li a.active {
+    background-color: #0d3559;
+    color: white;
+    border-radius: 50%;
+  }
+  
+  .pagination li a.disabled {
+    color: #c0c0c0;
+    background-color: #f8f8f8;
+    border: 1px solid #dcdcdc;
+  }
+  
+  .pagination li {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .pagination-controls-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls-container select {
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #0d3559;
+  }
+  
+  ::ng-deep .ngx-pagination .current {
+    padding: .1875rem .625rem;
+    background: rgb(56, 76, 143) !important;
+    color: #fefefe;
+    cursor: default;
+  }
+  
+  ::ng-deep .ngx-pagination li {
+    display: inline-block;
+    margin-right: 5px !important;
+    border: black solid 2px;
+    border-radius: 5px !important;
+  }
+  
+  ::ng-deep .ngx-pagination {
+    margin-top: 10px;
+  }
+  
+  ::ng-deep .ngx-pagination a:hover {
+    background-color: white !important;
+    border-radius: 5px;
+  }
+  

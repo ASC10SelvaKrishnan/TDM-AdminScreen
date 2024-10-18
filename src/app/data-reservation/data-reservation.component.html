@@ -1,0 +1,149 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/TDM-AdminScreen/src/app/home/home.component.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data Reservation</li>
+    </ol>
+</nav>
+
+<div class="Heading">
+    <div class="admin">
+        <p><strong>Data Reservation</strong></p>
+    </div>
+</div>
+
+<div class="container-admin">
+    <div class="navbar">
+        <div class="nav-inside">
+            <!-- Radio buttons to switch between Reserved data sets and Unreserve data sets -->
+            <input type="radio" id="reserved-data-sets" name="nav" [checked]="activeControl === 'reserved-data-sets'" (change)="changeControl('reserved-data-sets')">
+            <label for="reserved-data-sets">Reserved data sets</label>
+
+            <input type="radio" id="Unreserve-data-sets" name="nav" [checked]="activeControl === 'Unreserve-data-sets'" (change)="changeControl('Unreserve-data-sets')">
+            <label for="Unreserve-data-sets">Unreserve data sets</label>
+        </div>
+    </div>
+
+    <!-- Conditionally show Reserved data sets -->
+    <div *ngIf="activeControl === 'reserved-data-sets'" id="reserved-data-sets" class="content-section active">
+        <div class="rule-table-container">
+            <div class="table-responsive">
+              <table class="table rule-table">
+                <thead class="table-header">
+                  <tr>
+                    <th>Title <i class="bi bi-funnel"></i></th>
+                    <th>Project Id <i class="bi bi-funnel"></i></th>
+                    <th>Created Date</th>
+                    <th>Group <i class="bi bi-funnel"></i></th>
+                    <th>Status <i class="bi bi-funnel"></i></th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let rule of tableData | paginate: { itemsPerPage: pageSize, currentPage: page }; 
+                        let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
+                    <td>{{ rule.title }}</td>
+                    <td>{{ rule.projectid }}</td>
+                    <td>{{ rule.createddate}}</td>
+                    <td>{{ rule.group }}</td>
+                    <td>{{ rule.status }}</td>
+                    <td>
+                      <div class="action-icons">
+                        <button class="btn btn-icon" (click)="editRule(rule)">
+                          <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button class="btn btn-icon" (click)="deleteRule(rule)">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          
+              <!-- Flex container for Items per page and Pagination controls -->
+              <div class="pagination-controls-container">
+                <div class="items-per-page">
+                  <label for="pageSize">Show :</label>
+                  <select id="pageSize" [(ngModel)]="pageSize">
+                    <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
+                  </select>
+                </div>
+          
+                <div class="pagination" style="margin-top: 10px;">
+                <!-- Pagination controls -->
+                <pagination-controls
+                  (pageChange)="page = $event"
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                  firstLabel="First"
+                  lastLabel="Last">
+                </pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <!-- Conditionally show Unreserve data sets -->
+    <div *ngIf="activeControl === 'Unreserve-data-sets'" id="Unreserve-data-sets" class="content-section active">
+        <div class="rule-table-container">
+            <div class="table-responsive">
+              <table class="table rule-table">
+                <thead class="table-header">
+                  <tr>
+                    <th>Title <i class="bi bi-funnel"></i></th>
+                    <th>Project Id <i class="bi bi-funnel"></i></th>
+                    <th>Created Date</th>
+                    <th>Group <i class="bi bi-funnel"></i></th>
+                    <th>Status <i class="bi bi-funnel"></i></th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let rule of tableData1 | paginate: { itemsPerPage: pageSize, currentPage: page }; 
+                        let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
+                    <td>{{ rule.title }}</td>
+                    <td>{{ rule.projectid }}</td>
+                    <td>{{ rule.createddate}}</td>
+                    <td>{{ rule.group }}</td>
+                    <td>{{ rule.status }}</td>
+                    <td>
+                      <div class="action-icons">
+                        <button class="btn btn-icon" (click)="editRule(rule)">
+                          <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button class="btn btn-icon" (click)="deleteRule(rule)">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          
+              <!-- Flex container for Items per page and Pagination controls -->
+              <div class="pagination-controls-container">
+                <div class="items-per-page">
+                  <label for="pageSize">Show :</label>
+                  <select id="pageSize" [(ngModel)]="pageSize">
+                    <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
+                  </select>
+                </div>
+          
+                <div class="pagination" style="margin-top: 10px;">
+                <!-- Pagination controls -->
+                <pagination-controls
+                  (pageChange)="page = $event"
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                  firstLabel="First"
+                  lastLabel="Last">
+                </pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    </div>
+</div>

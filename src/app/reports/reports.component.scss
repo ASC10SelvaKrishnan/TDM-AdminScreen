@@ -1,0 +1,217 @@
+.breadcrumb {
+  padding: 10px;
+  margin-left: 60px;
+  margin-bottom: 0;
+  margin-top: 60px;
+}
+
+.breadcrumb-item a {
+  color: #009688;
+  text-decoration: none !important;
+}
+.reports-container {
+  padding: 20px;
+  width: 100%;
+  background-color: #ffffff;
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    padding-left:90px;
+    padding-right: 30px;
+  }
+
+  .report-card { 
+    background: white;
+    border-radius: 8px;
+    /* padding: 20px; */
+    box-shadow: 0 4px 8px rgba(207, 205, 205, 0.2),  /* bottom shadow */
+    0 -4px 8px rgba(207, 205, 205, 0.2), /* top shadow */
+    4px 0 8px rgba(207, 205, 205, 0.2),  /* right shadow */
+    -4px 0 8px rgba(207, 205, 205, 0.2); /* left shadow */
+
+
+    h2 {
+      font-size: 16px;
+      // margin-bottom: 20px;
+      color: #333;
+    }
+
+    .chart-container {
+      height: 400px;
+      // margin-bottom: 20px;
+      
+      canvas{
+        height: 700px;
+        width: 700px;
+      }
+    }
+
+    .list-container {
+      height: 400px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      
+
+      .list-items {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 10px;
+          padding: 10px;
+          background: #f5f5f5;
+          border-radius: 4px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .card-footer {
+      height: 50px;
+      text-align: right;
+      padding-bottom: 25px;
+
+      button {
+        background: none;
+        border: none;
+        color: #646464;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 19px;
+        text-transform: uppercase;
+        padding-right: 30px;
+      }
+    }
+  }
+}
+.reports {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #006666;
+  
+}
+.reports-main{
+  background-color: #ffffff;
+}
+
+.report-card-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-header {
+  padding: 17px 13px 0px 20px;
+  height: 80px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 23px;
+    font-weight: bold;
+    color: #073164b9;
+    margin: 0;
+  }
+
+  .flex-item-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+  }
+}
+
+.flex1{
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(83, 80, 80, 0.2); /* Thin line with reduced opacity */
+  opacity: 0.5; /* Additional opacity on the entire <hr> */
+}
+.flex-item-button{
+  right:0;
+  background-color: #ffffff;
+   border: 0px; 
+   padding-bottom: 20px;
+}
+
+.report-card-flex-item-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.report-card-flex-item-list{
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  height: 400px;
+}
+.button-with-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.button-with-icon svg {
+  margin-left: 20px;
+}
+.automation-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+
+  h3{
+    font-size: 15px;
+    margin: 0px;
+  }
+
+  p{
+    font-size: 10px;
+    margin: 0px;
+  }
+}
+.month-selector {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  padding-right: 30px;
+
+  select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    background-color: white;
+    cursor: pointer;
+    width: 200px; // Even wider
+    min-width: 160px;
+    height: 40px; // Taller dropdown
+    appearance: none; // Removes default browser styling
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px top 50%;
+    background-size: 12px auto;
+    padding-right: 30px; // Makes room for custom dropdown arrow
+
+    &:focus {
+      outline: none;
+      border-color: #009688;
+      box-shadow: 0 0 5px rgba(0, 150, 136, 0.3); // Subtle glow on focus
+    }
+  }
+}

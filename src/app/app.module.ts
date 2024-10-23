@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';  // Import the pagination module
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +11,8 @@ import { ReportsComponent } from './reports/reports.component';
 import { NgChartsModule } from 'ng2-charts';
 import { UserControlComponent } from './user-control/user-control.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgxPaginationModule,
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

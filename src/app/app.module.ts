@@ -11,6 +11,7 @@ import { AdminSettingComponent } from './admin-setting/admin-setting.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NgChartsModule } from 'ng2-charts';
 import { UserControlComponent } from './user-control/user-control.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserControlComponent } from './user-control/user-control.component';
     AppRoutingModule,
     FormsModule,
     NgxPaginationModule,
-    NgChartsModule
+    NgChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

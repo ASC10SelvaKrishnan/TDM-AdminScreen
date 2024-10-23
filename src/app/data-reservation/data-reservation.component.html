@@ -1,6 +1,6 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/TDM-AdminScreen/src/app/home/home.component.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Data Reservation</li>
     </ol>
 </nav>
@@ -27,6 +27,7 @@
     <div *ngIf="activeControl === 'reserved-data-sets'" id="reserved-data-sets" class="content-section active">
         <div class="rule-table-container">
             <div class="table-responsive">
+              <button (click)="onclick()">click</button>
               <table class="table rule-table">
                 <thead class="table-header">
                   <tr>

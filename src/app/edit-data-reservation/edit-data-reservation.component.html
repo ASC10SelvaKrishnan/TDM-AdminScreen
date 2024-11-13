@@ -1,0 +1,51 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item"><a href="/data-reservation">Data Reservation</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ customParam === 'Edit Reserved Data Set' ? 'Edit Reserved Data Set' : 'Edit Unreserved Data Set'}}</li>
+    </ol>
+</nav>
+
+<div class="Heading">
+    <div class="admin">
+        <p><strong>{{ customParam === 'Edit Reserved Data Set' ? 'Edit Reserved Data Set' : 'Edit Unreserved Data Set'}}</strong></p>
+    </div>
+</div>
+
+<div class="input-container">
+    <div class="field-group">
+        <label for="Title">Title</label>
+        <span id="Title" class="input-field">{{ customParam === 'Edit Reserved Data Set' ? selectedReservedData.title : selectedUnreservedData.title }}</span>
+    </div>
+
+    <div class="field-group">
+        <label for="createddate">created Date</label>
+        <span id="createddate" class="input-field">{{ customParam === 'Edit Reserved Data Set' ? selectedReservedData.createddate : selectedUnreservedData.createddate }}</span>
+    </div>
+
+    <div class="field-group">
+        <label for="group">Group</label>
+        <select id="group" class="input-field" [(ngModel)] = "currentGroup" (ngModelChange)="onGroupChange($event)">
+            <option value="" disabled selected>Select Group</option>
+            <option value="Group A">Group A</option>
+            <option value="Group B">Group B</option>
+            <option value="Group C">Group C</option>
+        </select>
+    </div>
+
+    <div class="field-group">
+        <label for="status">Status</label>
+        <select id="status" class="input-field" [(ngModel)] = "currentStatus" (ngModelChange)="onStatusChange($event)">
+            <option value="" disabled selected>Select Status</option>
+            <option value="Completed">Completed</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Pending">Pending</option>
+        </select>
+    </div>
+</div>
+
+<div class="button-container">
+    <button class="button cancel-button" (click)="navigateToDataReservation()">Cancel</button>
+    <button class="button submit-button" (click)="update()">Update</button>
+</div>
+

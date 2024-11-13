@@ -26,15 +26,41 @@
     <table class="table rule-table">
       <thead class="table-header">
         <tr>
-          <th>ID <i class="bi bi-funnel"></i></th>
-          <th>Name <i class="bi bi-funnel"></i></th>
-          <th>Designation <i class="bi bi-funnel"></i></th>
-          <th>Access <i class="bi bi-funnel"></i></th>
+          <th>
+            ID <i class="bi bi-sliders" (click)="toggleFilter('id')"></i>
+            <div *ngIf="showFilter.id">
+              <input type="text" [(ngModel)]="filters.id" (input)="applyFilter()" placeholder="Filter by ID" />
+            </div>
+          </th>
+          <th>
+            Name <i class="bi bi-sliders" (click)="toggleFilter('name')"></i>
+            <div *ngIf="showFilter.name">
+              <input type="text" [(ngModel)]="filters.name" (input)="applyFilter()" placeholder="Filter by Name" />
+            </div>
+          </th>
+          <th>
+            Designation <i class="bi bi-sliders" (click)="toggleFilter('designation')"></i>
+            <div *ngIf="showFilter.designation">
+              <select [(ngModel)]="filters.designation" (change)="applyFilter()">
+                <option value="">All</option> <!-- Option for no filter -->
+                <option *ngFor="let designation of designationOptions" [value]="designation">{{ designation }}</option>
+              </select>
+            </div>
+          </th>
+          <th>
+            Access <i class="bi bi-sliders" (click)="toggleFilter('access')"></i>
+            <div *ngIf="showFilter.access">
+              <select [(ngModel)]="filters.access" (change)="applyFilter()">
+                <option value="">All</option> <!-- Option for no filter -->
+                <option *ngFor="let access of accessOptions" [value]="access">{{ access }}</option>
+              </select>
+            </div>
+          </th>          
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let rule of tableData | paginate: { itemsPerPage: pageSize, currentPage: page }; 
+        <tr *ngFor="let rule of filteredData | paginate: { itemsPerPage: pageSize, currentPage: page }; 
               let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
           <td>{{ rule.id }}</td>
           <td>{{ rule.name }}</td>
@@ -42,10 +68,10 @@
           <td>{{ rule.access }}</td>
           <td>
             <div class="action-icons">
-              <button class="btn btn-icon" (click)="editRule(rule)">
+              <button class="btn btn-icon" [routerLink]="['/add-user', rule.id]">
                 <i class="bi bi-pencil-square"></i>
               </button>
-              <button class="btn btn-icon" (click)="deleteRule(rule)">
+              <button class="btn btn-icon" (click)="deleteRule(rule.id)">
                 <i class="bi bi-trash"></i>
               </button>
             </div>
@@ -54,107 +80,24 @@
       </tbody>
     </table>
 
-    <!-- Flex container for Items per page and Pagination controls -->
+    <!-- Pagination controls -->
     <div class="pagination-controls-container">
       <div class="items-per-page">
         <label for="pageSize">Show :</label>
-        <select id="pageSize" [(ngModel)]="pageSize">
-          <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
+        <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+          <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
         </select>
       </div>
 
-      <div class="pagination" style="margin-top: 10px;">
-      <!-- Pagination controls -->
-      <pagination-controls
-        (pageChange)="page = $event"
-        previousLabel="Prev"
-        nextLabel="Next"
-        firstLabel="First"
-        lastLabel="Last">
-      </pagination-controls>
+      <div class="pagination">
+        <button (click)="goToPage(page - 1)" [disabled]="page === 1">Prev</button>
+
+        <!-- Dynamic page numbers for the 3 boxes -->
+        <button *ngFor="let p of visiblePages" (click)="goToPage(p)" [class.active]="p === page">{{ p }}</button>
+
+        <button (click)="goToPage(page + 1)" [disabled]="page === totalPages">Next</button>
       </div>
     </div>
+    
   </div>
 </div>
-
-
-<!-- Add Form Modal/Dialog 
-<div class="modal" *ngIf="showForm">
-  <div class="modal-content">
-    <h3>Add New User</h3>
-    
-    <form #addForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Id</label>
-        <input 
-          type="text" 
-          name="id"
-          [(ngModel)]="newData.id"
-          required
-          #id="ngModel"
-          class="form-control">
-        <div *ngIf="id.invalid && id.touched" class="error">
-          ID is required
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Name</label>
-        <input 
-          type="text" 
-          name="name"
-          [(ngModel)]="newData.name"
-          required
-          #name="ngModel"
-          class="form-control">
-        <div *ngIf="name.invalid && name.touched" class="error">
-          Name is required
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Designation</label>
-        <input 
-          type="text" 
-          name="designation"
-          [(ngModel)]="newData.designation"
-          required
-          #designation="ngModel"
-          class="form-control">
-        <div *ngIf="designation.invalid && designation.touched" class="error">
-          Designation is required
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Access</label>
-        <input 
-          type="text" 
-          name="access"
-          [(ngModel)]="newData.access"
-          required
-          #access="ngModel"
-          class="form-control">
-        <div *ngIf="access.invalid && access.touched" class="error">
-          Access is required
-        </div>
-      </div>
-
-      <div class="button-group">
-        <button 
-          type="submit" 
-          [disabled]="addForm.invalid"
-          class="btn btn-success">
-          Submit
-        </button>
-        <button 
-          type="button" 
-          (click)="cancelAdd()"
-          class="btn btn-danger">
-          Cancel
-        </button>
-      </div>
-    </form>
-  </div>
-
-</div>   -->

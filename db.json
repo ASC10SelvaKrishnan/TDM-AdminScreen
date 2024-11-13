@@ -1,34 +1,555 @@
 {
-  "posts": [
+  "tableData": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "b7d2",
+      "name": "Alice",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "c9e4",
+      "name": "Robert",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "d2a6",
+      "name": "Jessica",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "e5f7",
+      "name": "Michael",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "h4e2",
+      "name": "Emma",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "i8a3",
+      "name": "Oliver",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "j7d5",
+      "name": "Sophia",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "k9c6",
+      "name": "Daniel",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "l2b7",
+      "name": "Mia",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "m1e4",
+      "name": "James",
+      "designation": "manager",
+      "access": "denied"
+    },
+    {
+      "id": "n3f5",
+      "name": "Isabella",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "o8a2",
+      "name": "Henry",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "p7c3",
+      "name": "Olivia",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "q9d1",
+      "name": "Alexander",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "r5b4",
+      "name": "Emily",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "s3e2",
+      "name": "Lucas",
+      "designation": "manager",
+      "access": "denied"
+    },
+    {
+      "id": "t6a1",
+      "name": "Ava",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "u4f3",
+      "name": "Mason",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "v8b6",
+      "name": "Ella",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "w1c7",
+      "name": "Ethan",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "x7d9",
+      "name": "Lily",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "y3e5",
+      "name": "Noah",
+      "designation": "manager",
+      "access": "denied"
+    },
+    {
+      "id": "z5a4",
+      "name": "Grace",
+      "designation": "teamlead",
+      "access": "granted"
+    },
+    {
+      "id": "a8b2",
+      "name": "Jack",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "b6c1",
+      "name": "Zoe",
+      "designation": "teamlead",
+      "access": "denied"
+    },
+    {
+      "id": "c9f8",
+      "name": "Benjamin",
+      "designation": "manager",
+      "access": "granted"
+    },
+    {
+      "id": "daed",
+      "name": "guru priya",
+      "designation": "manager",
+      "access": "granted"
     }
   ],
-  "comments": [
+  "unreservedData": [
     {
-      "id": 1,
-      "name": "vijay",
-      "phone": 123456789
+      "title": "Initiative Zeta",
+      "createddate": "14/07/2024",
+      "group": "Group C",
+      "status": "Pending",
+      "id": "5392"
     },
     {
-      "id": 1,
-      "name": "selva",
-      "phone": 123456789
+      "title": "Analysis Tau",
+      "createddate": "02/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "7117"
     },
     {
-      "id": 1,
-      "name": "sanjay",
-      "phone": 123456789
+      "title": "Concept Sigma",
+      "createddate": "18/05/2024",
+      "group": "Group C",
+      "status": "Pending",
+      "id": "1803"
     },
     {
-      "name": "ajith",
-      "phone": 98754,
-      "id": 2
+      "title": "Blueprint Omicron",
+      "createddate": "29/06/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "bfae"
+    },
+    {
+      "title": "Draft Beta",
+      "createddate": "17/07/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "db5c"
+    },
+    {
+      "title": "Report Lambda",
+      "createddate": "23/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "0f9b"
+    },
+    {
+      "title": "Concept Epsilon",
+      "createddate": "13/08/2024",
+      "group": "Group C",
+      "status": "Pending",
+      "id": "8349"
+    },
+    {
+      "title": "Scheme Nu",
+      "createddate": "05/07/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "fc02"
+    },
+    {
+      "title": "Outline Xi",
+      "createddate": "30/07/2024",
+      "group": "Group B",
+      "status": "Pending",
+      "id": "ac0e"
+    },
+    {
+      "title": "Details Delta",
+      "createddate": "10/06/2024",
+      "group": "Group C",
+      "status": "In Progress",
+      "id": "de6a"
+    },
+    {
+      "title": "Checklist Beta",
+      "createddate": "11/07/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "57f9"
+    },
+    {
+      "title": "Goals Gamma",
+      "createddate": "19/05/2024",
+      "group": "Group B",
+      "status": "Pending",
+      "id": "ea32"
+    },
+    {
+      "title": "Concept Phi",
+      "createddate": "07/06/2024",
+      "group": "Group C",
+      "status": "In Progress",
+      "id": "5bbd"
+    },
+    {
+      "title": "Analysis Eta",
+      "createddate": "01/07/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "e005"
+    },
+    {
+      "title": "Review Lambda",
+      "createddate": "09/06/2024",
+      "group": "Group B",
+      "status": "Pending",
+      "id": "5c7b"
+    },
+    {
+      "title": "Proposal Gamma",
+      "createddate": "12/08/2024",
+      "group": "Group C",
+      "status": "In Progress",
+      "id": "c35f"
+    },
+    {
+      "title": "Plan Omega",
+      "createddate": "14/07/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "b396"
+    },
+    {
+      "title": "Outline Rho",
+      "createddate": "15/06/2024",
+      "group": "Group B",
+      "status": "Pending",
+      "id": "a436"
+    },
+    {
+      "title": "Report Psi",
+      "createddate": "05/08/2024",
+      "group": "Group C",
+      "status": "In Progress",
+      "id": "28d2"
+    },
+    {
+      "title": "Checklist Sigma",
+      "createddate": "29/07/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "2d12"
+    },
+    {
+      "title": "Goals Kappa",
+      "createddate": "17/05/2024",
+      "group": "Group B",
+      "status": "Pending",
+      "id": "c5db"
+    },
+    {
+      "title": "Report Chi",
+      "createddate": "02/08/2024",
+      "group": "Group C",
+      "status": "In Progress",
+      "id": "f7dd"
+    },
+    {
+      "title": "Analysis Upsilon",
+      "createddate": "19/06/2024",
+      "group": "Group A",
+      "status": "Completed",
+      "id": "e5c7"
+    },
+    {
+      "title": "Draft Beta",
+      "createddate": "20/07/2024",
+      "group": "Group B",
+      "status": "Pending",
+      "id": "2bf6"
+    },
+    {
+      "title": "Plan Tau",
+      "createddate": "18/08/2024",
+      "group": "Group C",
+      "status": "In Progress",
+      "id": "14b5"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "reservedData": [
+    {
+      "title": "Checklist Omicron",
+      "createddate": "19/07/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "8e89"
+    },
+    {
+      "title": "Report Sigma",
+      "createddate": "25/05/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "7aeb"
+    },
+    {
+      "title": "Brief Theta",
+      "createddate": "06/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "f165"
+    },
+    {
+      "title": "Goals Phi",
+      "createddate": "30/05/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "c33e"
+    },
+    {
+      "title": "Concept Lambda",
+      "createddate": "28/07/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "2dfb"
+    },
+    {
+      "title": "Draft Kappa",
+      "createddate": "15/08/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "7032"
+    },
+    {
+      "title": "Plan Upsilon",
+      "createddate": "03/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "eb49"
+    },
+    {
+      "title": "Review Omega",
+      "createddate": "07/07/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "07f7"
+    },
+    {
+      "title": "Summary Chi",
+      "createddate": "20/05/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "9d8c"
+    },
+    {
+      "title": "Meeting Eta",
+      "createddate": "27/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "696b"
+    },
+    {
+      "title": "Brief Nu",
+      "createddate": "10/08/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "c735"
+    },
+    {
+      "title": "Outline Iota",
+      "createddate": "14/06/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "3c43"
+    },
+    {
+      "title": "Goals Sigma",
+      "createddate": "29/06/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "222f"
+    },
+    {
+      "title": "Checklist Rho",
+      "createddate": "01/08/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "774b"
+    },
+    {
+      "title": "Proposal Epsilon",
+      "createddate": "16/07/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "dfc3"
+    },
+    {
+      "title": "Checklist Omicron",
+      "createddate": "19/07/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "8e89"
+    },
+    {
+      "title": "Report Sigma",
+      "createddate": "25/05/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "7aeb"
+    },
+    {
+      "title": "Brief Theta",
+      "createddate": "06/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "f165"
+    },
+    {
+      "title": "Goals Phi",
+      "createddate": "30/05/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "c33e"
+    },
+    {
+      "title": "Concept Lambda",
+      "createddate": "28/07/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "2dfb"
+    },
+    {
+      "title": "Draft Kappa",
+      "createddate": "15/08/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "7032"
+    },
+    {
+      "title": "Plan Upsilon",
+      "createddate": "03/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "eb49"
+    },
+    {
+      "title": "Review Omega",
+      "createddate": "07/07/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "07f7"
+    },
+    {
+      "title": "Summary Chi",
+      "createddate": "20/05/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "9d8c"
+    },
+    {
+      "title": "Meeting Eta",
+      "createddate": "27/06/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "696b"
+    },
+    {
+      "title": "Brief Nu",
+      "createddate": "10/08/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "c735"
+    },
+    {
+      "title": "Outline Iota",
+      "createddate": "14/06/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "3c43"
+    },
+    {
+      "title": "Goals Sigma",
+      "createddate": "29/06/2024",
+      "group": "Group C",
+      "status": "Completed",
+      "id": "222f"
+    },
+    {
+      "title": "Checklist Rho",
+      "createddate": "01/08/2024",
+      "group": "Group A",
+      "status": "Pending",
+      "id": "774b"
+    },
+    {
+      "title": "Proposal Epsilon",
+      "createddate": "16/07/2024",
+      "group": "Group B",
+      "status": "In Progress",
+      "id": "dfc3"
+    }
+  ]
 }

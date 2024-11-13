@@ -1,7 +1,7 @@
 
 
 .container-fluid{
-    background-color: #009688;
+    background-color: #66c;
     position: fixed;
     margin-top: 55px;
     z-index: 1000;
@@ -56,7 +56,7 @@
 
         li {
             a {
-                color: #009688;
+                color: #66c;
                 padding: 10px 10px;
                 text-decoration: none;
                 display: flex;
@@ -70,8 +70,8 @@
                 }
 
                 &:hover, &.active {
-                    background-color: #009688;
-                    color: white;
+                    background-color: #e8e8ff;
+                    color: #66c;
                 }
             }
         }

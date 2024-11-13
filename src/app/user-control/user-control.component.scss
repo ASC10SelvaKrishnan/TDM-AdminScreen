@@ -6,12 +6,12 @@
 }
 
 .breadcrumb-item a {
-    color: #009688;
+    color: black;
     text-decoration: none !important;
 }
 
 .Heading {
-    color: rgb(56, 76, 143);
+    color: black;
     text-align: center;
     align-items: center;
 }
@@ -21,15 +21,15 @@
     position: relative;
 }
 
-.admin strong::after {
-    content: '';
-    display: block;
-    width: 6%;
-    height: 2px;
-    background-color: rgb(56, 76, 143);
-    margin: 0 auto;
-    margin-top: 2px;
-}
+// .admin strong::after {
+//     content: '';
+//     display: block;
+//     width: 6%;
+//     height: 2px;
+//     background-color: black;
+//     margin: 0 auto;
+//     margin-top: 2px;
+// }
 
 .section {
     margin-left: 40px;
@@ -54,19 +54,19 @@
     border-color: black solid 5px;
 }
 
-.title ::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    color: rgb(56, 76, 143);
-    background-color: rgb(56, 76, 143);
-    margin: 0px auto;
-    margin-top: 0px;
-}
+// .title ::after {
+//     content: '';
+//     display: block;
+//     width: 100%;
+//     height: 1px;
+//     color: black;
+//     background-color: black;
+//     margin: 0px auto;
+//     margin-top: 0px;
+// }
 
 .adduser button {
-    background-color: #009688; 
+    background-color: #3d3db8;
     color: white; 
     border: none;
     padding: 10px 20px;
@@ -93,13 +93,36 @@
   border-collapse: collapse;
 }
 
+th {
+  position: relative;
+}
+
+th i.bi-sliders {
+  opacity: 0; /* Hide the slider icon by default */
+  transition: opacity 0.3s ease; /* Smooth transition for fading in */
+}
+
+th:hover i.bi-sliders {
+  opacity: 1; /* Show the slider icon on hover */
+}
+
 .table-header th {
-  background-color: #0d3559;
-  color: white;
+  background-color: rgb(241,241,241,1);
+  color: black;
   padding: 10px;
-  padding-left: 5px;
+  padding-left: 10px;
   text-align: left;
   position: relative;
+}
+
+.table-header th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 2px;
+  height: 35%;
+  background-color: #d1d1d2;
 }
 
 .table-header th i {
@@ -108,7 +131,7 @@
 
 .rule-table td {
   padding: 5px;
-  border-bottom: 3px solid #ddd;
+  border-bottom: 1px solid #dee2e6;
 }
 
 thead, tbody, tfoot, tr, td, th {
@@ -127,7 +150,11 @@ thead, tbody, tfoot, tr, td, th {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #0d3559;
+  color: black;
+}
+
+.bi-sliders {
+  cursor: pointer;
 }
 
 .bi-pencil-square,
@@ -135,11 +162,8 @@ thead, tbody, tfoot, tr, td, th {
   font-size: 18px;
 }
 
-.pagination-controls-container {
-  display: flex;
-  justify-content: end;
-  align-items: center; 
-  margin-top: 10px;
+select {
+  cursor: pointer;
 }
 
 .items-per-page {
@@ -152,7 +176,7 @@ thead, tbody, tfoot, tr, td, th {
 }
 
 .table-dark {
-  --bs-table-bg: #c0dce0;
+  --bs-table-bg: white;
   --bs-table-color: #000;
 }
 
@@ -161,125 +185,80 @@ thead, tbody, tfoot, tr, td, th {
   --bs-table-color: #000;
 }
 
-.pagination {
-  list-style-type: none;
-  display: flex;
-  gap: 10px;
-  padding: 0;
-}
-
-.pagination li a {
-  color: #0d3559;
-  background-color: #f0f8ff;
-  padding: 8px 12px;
-  border-radius: 50%;
-  border: 1px solid #0d3559;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pagination li a i {
-  font-size: 14px;
-}
-
-.pagination li a.active {
-  background-color: #0d3559;
-  color: white;
-  border-radius: 50%;
-}
-
-.pagination li a.disabled {
-  color: #c0c0c0;
-  background-color: #f8f8f8;
-  border: 1px solid #dcdcdc;
-}
-
-.pagination li {
-  border-radius: 15px;
-  overflow: hidden;
+/* Add hover effect for table rows */
+.rule-table tbody tr:hover td {
+  background-color: #d9e9f7 !important; /* Light blue background on hover */
 }
 
 .pagination-controls-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-bottom: 30px;
 }
 
-.pagination-controls-container select {
+.items-per-page {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.items-per-page label {
+  margin-right: 10px;
+  font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: #0d3559;
+}
+
+.items-per-page select {
   border-radius: 5px;
   padding: 5px;
   border: 1px solid #0d3559;
-}
-
-::ng-deep .ngx-pagination .current {
-  padding: .1875rem .625rem;
-  background: rgb(56, 76, 143) !important;
-  color: #fefefe;
-  cursor: default;
-}
-
-::ng-deep .ngx-pagination li {
-  display: inline-block;
-  margin-right: 5px !important;
-  border: black solid 2px;
-  border-radius: 5px !important;
-}
-
-::ng-deep .ngx-pagination {
-  margin-top: 10px;
-}
-
-::ng-deep .ngx-pagination a:hover {
-  background-color: white !important;
-  border-radius: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-/* data-table */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
   background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 80%;
-  max-width: 500px;
+  color: #0d3559;
+  font-weight: bold;
+  font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  cursor: pointer;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.error {
-  color: red;
-  font-size: 0.8em;
-  margin-top: 5px;
-}
-
-.button-group {
+.pagination {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid rgb(133, 132, 132);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button.active {
+  background-color: #66c;
+  color: white;
+}
+
+.pagination button:disabled {
+  color: #c0c0c0;
+  background-color: #f8f8f8;
+  border: 1px solid #dcdcdc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #66c;
+  color: #f1f1f1;
+  border: 1px solid #66c;
+}
+
+.pagination button:focus {
+  outline: none;
 }

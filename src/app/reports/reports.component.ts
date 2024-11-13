@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -16,6 +17,10 @@ interface AutomationItem {
 })
 
 export class ReportsComponent implements OnInit {
+  isOpen = false; // Toggle state for caret
+
+  constructor(private router: Router) {}
+ 
 
   months: string[] = [
     'Month','January', 'February', 'March', 'April', 'May', 'June',
@@ -23,20 +28,25 @@ export class ReportsComponent implements OnInit {
   ];
   selectedMonth: string = this.months[0]; // Default to first month
 
+  // Add toggle method for caret
+  toggleCaret() {
+    this.isOpen = !this.isOpen;
+  }
+
 // Data Requests Line Chart
 dataRequestsLineChart: ChartConfiguration['data'] = {
   datasets: [
     {
       data: this.generateSineWaveData(20), // Decrease points for even fewer dots in the sine wave
-      backgroundColor: 'rgba(0, 200, 140, 0.2)',
-      borderColor: 'rgb(0, 200, 140)', // Color for sine wave
-      pointBackgroundColor: 'rgb(0, 200, 140)',
+      backgroundColor: 'rgba(102, 102, 204, 0.2)',
+      borderColor: 'rgb(102, 102, 204)', // Color for sine wave
+      pointBackgroundColor: 'rgb(102, 102, 204)',
       pointRadius: 0, // Make points invisible
       fill: false, // Fill under the sine wave
     },
     {
       data: this.generateStraightLineData(20, 20), // Update straight line data points to match sine wave data points
-      borderColor: 'rgb(0, 200, 140)', // Updated color to match the sine wave
+      borderColor: 'rgb(102, 102, 204)', // Updated color to match the sine wave
       borderWidth: 2, // Width of the straight line
       fill: false, // Do not fill under the line
       pointRadius: 0, // Make points invisible
@@ -45,6 +55,10 @@ dataRequestsLineChart: ChartConfiguration['data'] = {
   labels: Array.from({ length: 20 }, (_, i) => (i * 2 + 1).toString()), // Generate odd numbers starting from 1 for 20 points
 };
 
+
+OnNavigate() {
+  this.router.navigate(['/reports-details']); // Updated navigation path
+}
 // Function to generate smoother sine wave data
 generateSineWaveData(points: number): number[] {
   const sineWaveData: number[] = [];
@@ -115,7 +129,7 @@ domainRequestsBarChart: ChartConfiguration['data'] = {
   datasets: [{
     data: [1, 5, 3, 10, 5, 10],
     label: 'Requests per Domain',
-    backgroundColor: ['#FFA500', '#FF7F7F', '#87CEFA', '#66CDAA', '#6495ED', '#FFA07A'],
+    backgroundColor: ['#FFB3C1', '#80C9F3', '#FFE29A', '#A3E5E5', '#C5A6FF', '#FFC58E'],
     barThickness: 70, // Control the breadth of each bar
     borderRadius: 10 // Add curves to the bars
   }]
@@ -159,6 +173,7 @@ barChartOptions: ChartConfiguration['options'] = {
       align: 'end',
       color: '#000', // You can change the color if needed
       font: {
+        family:'Avenir-Book, Helvetica, Arial, sans-serif',
         weight: 'bold'
       }
     }
@@ -170,7 +185,7 @@ serviceNowDonutChart: ChartConfiguration<'doughnut'>['data'] = {
   labels: ['Service now', 'Test data requests submitted thru the tool'],
   datasets: [{
     data: [40, 60],
-    backgroundColor: ['#E57373','#3F51B5']
+    backgroundColor: ['#3498DB','#9B59B6']
   }]
 };
 
@@ -178,7 +193,7 @@ projectDataDonutChart: ChartConfiguration<'doughnut'>['data'] = {
   labels: ['Project level reserved', 'Available data per domain'],
   datasets: [{
     data: [40, 60],
-    backgroundColor: ['#E57373','#3F51B5']
+    backgroundColor: ['#3498DB','#9B59B6']
   }]
 };
 
@@ -191,14 +206,14 @@ donutChartOptions: ChartOptions<'doughnut'> = {
     position: 'bottom',
     align: 'start',  // Align the legend items to the left
     labels: {
-        padding: 20,  // Space between the labels and their indicators
+        padding: 7,  // Space between the labels and their indicators
         boxWidth: 10,  // Adjust size of the legend box
         usePointStyle: true,
         boxHeight: 10,
         font: {
-            size: 14,
+            size: 9,
             weight: 'bold',
-            family: 'Arial'
+            family: 'Avenir-Book, Helvetica, Arial, sans-serif'
         },
         // Custom label callback to include percentages
         generateLabels: (chart) => {
@@ -261,7 +276,7 @@ donutChartOptions: ChartOptions<'doughnut'> = {
       font: {
         size: 14,           // Set font size for the labels
         weight: 'bold',      // Add font weight for better readability
-        family: 'Arial'
+        family: 'Avenir-Book, Helvetica, Arial, sans-serif'
       }
     }
   },
@@ -279,7 +294,7 @@ automationItems: AutomationItem[] = [
   { title: 'IT Department Need Two More Talents For UX/UI Designer Position', time: 'Yesterday, 09:15 AM' },
 ];
 
-  constructor() {}
+ // constructor() {}
 
   ngOnInit(): void {}
 }

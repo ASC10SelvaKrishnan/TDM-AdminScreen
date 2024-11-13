@@ -65,7 +65,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let x of filteredReservedData | paginate: { itemsPerPage: pageSize, currentPage: pageForReservedData }; 
+                  <!-- <tr *ngFor="let rule of tableData | paginate: { itemsPerPage: pageSize, currentPage: page }; 
                         let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
                     <td>{{ x.title }}</td>
                     <td>{{ x.id }}</td>
@@ -82,24 +82,27 @@
                         </button>
                       </div>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
           
               <div class="pagination-controls-container">
                 <div class="items-per-page">
                   <label for="pageSize">Show :</label>
-                  <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForReserved()">
+                  <!-- <select id="pageSize" [(ngModel)]="pageSize">
                     <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
-                  </select>
+                  </select> -->
                 </div>
-
-                <div class="pagination">
-                  <button (click)="goToPageReservedData(pageForReservedData - 1)" [disabled]="pageForReservedData === 1">Prev</button>
-                  
-                  <button *ngFor="let p of visiblePagesReserved" (click)="goToPageReservedData(p)" [class.active]="p === pageForReservedData">{{ p }}</button>
-
-                  <button (click)="goToPageReservedData(pageForReservedData + 1)" [disabled]="pageForReservedData === totalReservedPages">Next</button>
+          
+                <div class="pagination" style="margin-top: 10px;">
+                <!-- Pagination controls -->
+                <!-- <pagination-controls
+                  (pageChange)="page = $event"
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                  firstLabel="First"
+                  lastLabel="Last">
+                </pagination-controls> -->
                 </div>
 
                 <!-- <div class="record-info">
@@ -160,7 +163,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let y of filteredUnreservedData | paginate: { itemsPerPage: pageSize, currentPage: pageForUnreservedData }; 
+                  <!-- <tr *ngFor="let rule of tableData1 | paginate: { itemsPerPage: pageSize, currentPage: page }; 
                         let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
                     <td>{{ y.title }}</td>
                     <td>{{ y.id }}</td>
@@ -177,26 +180,27 @@
                         </button>
                       </div>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
            
               <div class="pagination-controls-container">
                 <div class="items-per-page">
                   <label for="pageSize">Show :</label>
-                  <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForUnreserved()">
-                    <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
+                  <select id="pageSize" >
+                    <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
                   </select>
                 </div>
-
-                <div class="pagination">
-                  <button (click)="goToPageUnreservedData(pageForUnreservedData - 1)" [disabled]="pageForUnreservedData === 1">Prev</button>
-
-                  <button *ngFor="let p of visiblePagesUnreserved" (click)="goToPageUnreservedData(p)" [class.active]="p === pageForUnreservedData">{{ p }}</button>
-
-                  <button (click)="goToPageUnreservedData(pageForUnreservedData + 1)" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
-
-
+          
+                <div class="pagination" style="margin-top: 10px;">
+                <!-- Pagination controls -->
+                <!-- <pagination-controls
+                  (pageChange)="page = $event"
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                  firstLabel="First"
+                  lastLabel="Last">
+                </pagination-controls> -->
                 </div>
 
                 <!-- <div class="record-info">

@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-submitted-thru-the-tool/reports-details-submitted-thru-the-tool.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserControlComponent,
     AddUserComponent,
     DataReservationComponent,
-    EditDataReservationComponent
+    EditDataReservationComponent,
+    ReportsDetailsSubmittedThruTheToolComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -15,6 +12,8 @@ import { UserControlComponent } from './user-control/user-control.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { DataReservationComponent } from './data-reservation/data-reservation.component';
 import { EditDataReservationComponent } from './edit-data-reservation/edit-data-reservation.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +34,9 @@ import { EditDataReservationComponent } from './edit-data-reservation/edit-data-
     FormsModule,
     NgxPaginationModule,
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

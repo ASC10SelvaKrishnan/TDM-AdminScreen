@@ -1,7 +1,25 @@
+
+  
+  .app-container {
+    width: 100%; /* Ensures content width matches */
+    min-height: 100vh;
+    background-color: #ffffff; /* Apply light blue */
+    padding: 20px; /* Optional: Adds padding around */
+    box-sizing: border-box;
+  }
+  
+
+.p{
+    margin-top: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size:100px;
+}
 /* Container for header section */
 .header {
     padding: 20px;
-    background-color: #FFFFFF;
+    // background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,18 +37,21 @@
 
 .welcome-text h1 span {
     font-weight: 600;
-    color: #333; /* Black color for 'John' */
+    color:#333;
 }
 
 .welcome-text p {
     font-size: 18px;
     font-weight: 300;
-    color: #888;
+    color: #000000;
     margin-top: 2px;
     margin-left: 45px;
 }
 
 /* Styling for filters */
+.filter-label .asterisk {
+    color: red; /* Red asterisk */
+}
 .filters {
     display: flex;
     gap: 20px;
@@ -42,16 +63,14 @@
     flex-direction: column;
 }
 
+
 .filter-label {
     font-size: 14px;
     font-weight: 500;
-    color: #666;
+    color: #393636;
     margin-bottom: 8px;
 }
 
-.filter-label .asterisk {
-    color: red; /* Red asterisk */
-}
 
 select {
     padding: 10px;
@@ -59,7 +78,7 @@ select {
     border: 1px solid #ddd;
     font-size: 14px;
     font-weight: 500;
-    color: #333;
+    color:#383333;
     background-color: #fff;
     cursor: pointer;
     width: 200px;
@@ -181,7 +200,7 @@ select {
 
 /* Custom Dashboard container for the cards */
 .custom-dashboard-container {
-    margin-left: 10px;
+    margin-right: 10px;
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -189,7 +208,7 @@ select {
 }
 
 .custom-card {
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 575px;
@@ -202,9 +221,9 @@ select {
 
 .custom-card-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 15px 5px; /* Adjusted padding */
+    justify-content: left;
+    align-items: flex-start;
+    margin-bottom:20px; 
 }
 
 .title-container {
@@ -217,78 +236,49 @@ select {
 }
 
 .status-title {
-    color: #004AAD;
+    color:rgb(6, 6, 6);
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
     position: relative;
 }
 
-.status-title::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: #004AAD;
-}
+
 
 
 
 /* Adjustments for the status card content */
+
+
+  
+  
 .status-card-content {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     flex-grow: 1;
+    gap:10px;
 }
 
 
 /* Pie Chart Styles */
-.pie-chart-container {
+.donut-chart-container {
+    display: block;
     width: 200px;
     height: 200px;
-    position: relative;
+    box-sizing: border-box;
 }
-.pie-chart {
-    margin-left:30px;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: conic-gradient(
-        #dc2f2f 0deg 72deg,
-        #F1C40F 72deg 216deg,
-        #4146dc 216deg 288deg,
-        #FF69B4 288deg 360deg
-    );
-}
-.pie-chart-center {
-    margin-left: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border-radius: 50%;
-    width: 70%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.pie-chart-total {
-    font-size: 24px;
-    font-weight: bold;
-}
-.pie-chart-label {
-    font-size: 14px;
+
+.donut-chart-label {
+    font-size: 0.9rem;
     color: #666;
 }
+.donut-chart-center{
+    margin-top: 15px;
+    margin-left: 50px;
+}
 .status-list {
-    margin-top: 70px;
-    width: 50%; /* Adjust as needed */
+    margin-top: 40px;
+    width: 60%; /* Adjust as needed */
     padding-left: 5%;
 }
 
@@ -302,7 +292,8 @@ select {
 }
 .status-dot {
     margin-top: 4px;
-    margin-right: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -311,16 +302,17 @@ select {
     font-weight: 600;
     font-size: 12px;
     color:#5f5c5c;
-    padding-right:10%;
+    width: 10px;
+    padding-left: 10px;
 }
 .status-percentage {
     display: grid;
     text-align: end;
     font-size: 12px;
     font-weight: 650;
-    grid-template-columns: auto 40px; /* Add this line */
     align-items: center; /* Add this line */
     gap: 8px; /* Add this line for spacing between status and percentage */
+    margin-left: 100px;
 }
 .completed .status-dot { background-color: #FF69B4; }
 .submitted .status-dot { background-color: #4146dc; }
@@ -337,6 +329,7 @@ select {
     padding: 15px 15px 5px; /* Adjusted padding */
 }
 .title-container {
+    color:rgb(6, 6, 6);
     display: flex;
     align-items: center;
 }
@@ -368,6 +361,7 @@ select {
     display: flex;
     flex-direction: column;
 }
+
 
 .custom-alert-list {
     flex-grow: 1;
@@ -403,7 +397,7 @@ select {
  .custom-see-all-button {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 100px;
+    height:40px;
   }
   
   .custom-see-all-button button {
@@ -431,15 +425,14 @@ select {
 .custom-card-header h3 {
     font-size: 18px;
     font-weight: 500;
-    color: #0c3c78;
+    color: #000000;
     position: relative;
-    padding-bottom: 4px;
+    margin-top:4px;
 }
 .custom-card-header h3::after {
     content: '';
     width: 40px;
     height: 3px;
-    background-color: #0c3c78;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -455,7 +448,7 @@ select {
  //for table//
 
   .table-container {
-    width: 800px;
+    width: 50px;
     margin-left: 50px;
     background-color: white;
     border-radius: 8px;
@@ -464,8 +457,8 @@ select {
 }
 
 .custom-request-table {
-    margin-left: 15px;
-    width:97%;
+    margin-right: 20px;
+    width:100%;
     border-collapse: separate;
     border-spacing: 0;
 }
@@ -473,10 +466,11 @@ select {
 .custom-request-table th,
 .custom-request-table td {
     padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
     text-align: left;
 }
 .custom-request-table-title {
-    color: rgb(0, 22, 100);
+    color: rgb(6, 6, 6);
     margin-bottom: 30px;
     position: relative;
     margin-right: 85%;
@@ -489,108 +483,124 @@ select {
     left: 0;
     bottom: -10px; /* Adjust this value to increase/decrease space */
     width: 100%;
-    height: 2px; /* Adjust thickness of underline */
+   
     background-color: darkblue;
 }
 
 
 .custom-request-table thead {
-    background-color: #003366;
-    color: white;
+    background-color:rgba(241,241,241,1);
+    color: black;
 }
 
 .custom-request-table th {
     font-weight: bold;
+   
 }
+th {
+    position: relative;
+  }
+   
+  th i.bi-sliders {
+    opacity: 0; /* Hide the slider icon by default */
+    transition: opacity 0.3s ease; /* Smooth transition for fading in */
+  }
+   
+  th:hover i.bi-sliders {
+    opacity: 1; /* Show the slider icon on hover */
+  }
+ 
 
 .custom-request-table tbody tr:nth-child(even) {
-    background-color: #e6f3ff;
+    background-color: #ffffff;
 }
 
 .custom-request-table tbody tr:nth-child(odd) {
     background-color: #ffffff;
 }
+/* Apply the ::after effect to all table headers except the last one */
+.custom-request-table th:not(:last-child)::after {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute;
+    top: 15px; /* Adjust to position the border vertically */
+    right: 0;
+    width: 2px; /* Width of the border */
+    height: 35%; /* Height of the border (adjust as needed) */
+    background-color: #d1d1d2; /* Border color */
+  }
 
 .custom-request-table tbody tr:hover {
     background-color: #d9e9f7;
 }
 
-// .pagination {
-//     list-style-type: none;
-//     display: flex;
-//     gap: 10px;
-//     padding: 0;
-//   }
-  
-//   .pagination li a {
-//     color: #0d3559;
-//     background-color: #f0f8ff;
-//     padding: 8px 12px;
-//     border-radius: 50%;
-//     border: 1px solid #0d3559;
-//     text-decoration: none;
-//     font-weight: bold;
-//     display: inline-flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-  
-//   .pagination li a i {
-//     font-size: 14px;
-//   }
-  
-//   .pagination li a.active {
-//     background-color: #0d3559;
-//     color: white;
-//     border-radius: 50%;
-//   }
-  
-//   .pagination li a.disabled {
-//     color: #c0c0c0;
-//     background-color: #f8f8f8;
-//     border: 1px solid #dcdcdc;
-//   }
-  
-//   .pagination li {
-//     border-radius: 15px;
-//     overflow: hidden;
-//   }
-  
-//   .pagination-controls-container {
-//     display: flex;
-//     justify-content: flex-end;
-//     align-items: center;
-//     margin-top: 20px;
-//   }
-  
-//   .pagination-controls-container select {
-//     border-radius: 5px;
-//     padding: 5px;
-//     border: 1px solid #0d3559;
-//   }
-  
-//   ::ng-deep .ngx-pagination .current {
-//     padding: .1875rem .625rem;
-//     background: rgb(56, 76, 143) !important;
-//     color: #fefefe;
-//     cursor: default;
-//   }
-  
-//   ::ng-deep .ngx-pagination li {
-//     display: inline-block;
-//     margin-right: 5px !important;
-//     border: black solid 2px;
-//     border-radius: 5px !important;
-//   }
-  
-//   ::ng-deep .ngx-pagination {
-//     margin-top: 10px;
-//   }
-  
-//   ::ng-deep .ngx-pagination a:hover {
-//     background-color: white !important;
-//     border-radius: 5px;
-//   }
-  
+th {
+  text-align: left;
+  i {
+    margin-left: 20px;
+  }
+}
+
+.icon-right {
+  margin-right: 40px; /* Push the icon to the far right */
+}
 
 
+
+.pagination-controls-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: relative; /* Allows better positioning control */
+  }
+  
+  .items-per-page {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .items-per-page label {
+    margin-right: 10px;
+    font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  }
+  
+  .pagination {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    padding: 5px 12px; /* Adjust padding for box-shaped buttons */
+    border-radius: 5px; /* Rounded corners for box shape */
+    border: 1px solid rgb(133, 132, 132);
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    line-height: 1.2; /* Adjust line height to reduce overall height */
+  }
+  
+  .pagination button.active {
+    background-color: #66c;
+    color: white;
+  }
+  
+  .pagination button:disabled {
+    color: #c0c0c0;
+    background-color: #f8f8f8;
+    border: 1px solid #dcdcdc;
+  }
+  
+  .pagination button:hover {
+    background-color: #66c;
+    color: #F1F1F1;
+    border: 1px solid #66c;
+  }
+  
+  .pagination button:focus {
+    outline: none;
+  }
+  

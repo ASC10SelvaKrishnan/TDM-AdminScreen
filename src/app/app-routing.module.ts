@@ -8,6 +8,7 @@ import { DataReservationComponent } from './data-reservation/data-reservation.co
 import { AddUserComponent } from './add-user/add-user.component';
 import { EditDataReservationComponent } from './edit-data-reservation/edit-data-reservation.component';
 import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-submitted-thru-the-tool/reports-details-submitted-thru-the-tool.component';
+import { AlertsComponent } from './alerts/alerts.component'; 
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'add-user',component:AddUserComponent},
   {path:'add-user/:id', component:AddUserComponent},  // Edit mode
   {path:'edit-data-reservation/:id/:customParam', component:EditDataReservationComponent},
-  {path:'reports-details',component: ReportsDetailsSubmittedThruTheToolComponent}
+  {path:'reports-details',component: ReportsDetailsSubmittedThruTheToolComponent},
+  { path: 'alerts', component: AlertsComponent }
 ];
 
 @NgModule({

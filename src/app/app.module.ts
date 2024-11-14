@@ -1,3 +1,7 @@
+
+
+
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -14,6 +18,12 @@ import { DataReservationComponent } from './data-reservation/data-reservation.co
 import { EditDataReservationComponent } from './edit-data-reservation/edit-data-reservation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertsComponent } from './alerts/alerts.component';
+
+
+
+
+
 
 
 import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-submitted-thru-the-tool/reports-details-submitted-thru-the-tool.component';
@@ -29,7 +39,8 @@ import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-s
     AddUserComponent,
     DataReservationComponent,
     EditDataReservationComponent,
-    ReportsDetailsSubmittedThruTheToolComponent
+    ReportsDetailsSubmittedThruTheToolComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +51,9 @@ import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-s
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

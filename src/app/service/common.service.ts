@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // Interface to represent the structure of the table data
 interface tableData {
@@ -29,6 +31,9 @@ interface UnreservedData {
   providedIn: 'root'
 })
 export class CommonService {
+
+
+  url ='http://localhost:3000/'
 
   constructor(private http:HttpClient) { }
 
@@ -93,6 +98,23 @@ export class CommonService {
 
   saveUnreservedData(UnreservedData: any) {
     return this.http.put<UnreservedData>(`http://localhost:3000/unreservedData/${UnreservedData.id}`,UnreservedData);
+  }
+
+//methods for homescreen
+
+  get(){
+    return this.http.get(this.url+'requests')
+  }
+  post(data:any){
+    return this.http.post(this.url+'requests', data)
+  }
+  getalerts(){
+    return this.http.get(this.url+'alerts')
+  }
+  getStatusData() {
+    return this.http.get(this.url+'status')
+
+  
   }
 
 }

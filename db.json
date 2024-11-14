@@ -340,6 +340,333 @@
       "id": "14b5"
     }
   ],
+
+  "user":[ {
+    "name": "John"
+  }
+],
+  "filters": {
+    "timeRange": {
+      "label": "Time Range",
+      "required": true,
+      "options": [
+        "This Week",
+        "This Month",
+        "This Year"
+      ]
+    },
+    "project": {
+      "label": "Project",
+      "required": true,
+      "options": [
+        "Project A",
+        "Project B",
+        "Project C"
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "title": "Data requests submitted through this tool",
+      "value": "50,500",
+      "highlightClass": "highlight-1"
+    },
+    {
+      "title": "Data requests submitted today",
+      "value": "89,000",
+      "highlightClass": "highlight-2"
+    },
+    {
+      "title": "Average time per automation workflow",
+      "value": "24 min",
+      "highlightClass": "highlight-3"
+    },
+    {
+      "title": "No. of data requests submitted per Domain",
+      "value": "34",
+      "highlightClass": "highlight-4"
+    }
+  ],
+  "status": {
+    "title": "Status",
+    "total": 45623,
+    "categories": [
+      {
+        "name": "Completed",
+        "percentage": 20,
+        "class": "completed"
+      },
+      {
+        "name": "Submitted",
+        "percentage": 20,
+        "class": "submitted"
+      },
+      {
+        "name": "In Progress",
+        "percentage": 40,
+        "class": "in-progress"
+      },
+      {
+        "name": "Failed",
+        "percentage": 20,
+        "class": "failed"
+      }
+    ]
+  },
+  "notifications": {
+    "title": "Notification",
+    "recentAlerts": [
+      {
+        "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "timestamp": "Nov 24, 2020 | 09:26:08 AM"
+      },
+      {
+        "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "timestamp": "Nov 24, 2020 | 09:25:05 AM"
+      },
+      {
+        "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "timestamp": "Nov 24, 2020 | 09:25:05 AM"
+      }
+    ]
+  },
+  "requests": [
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group - Create New",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 1,
+      "Region": "Tenv7",
+      "RequestedDate": "02.11.2024",
+      "RequestedBy": "Saravanan",
+      "Status": "In Progress"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group - Create New",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 1,
+      "Region": "Tenv7",
+      "RequestedDate": "08.11.2024",
+      "RequestedBy": "Venkat",
+      "Status": "Submitted"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group - Terminate",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": "1",
+      "Region": "Tenvb",
+      "RequestedDate": "04.11.2024",
+      "RequestedBy": "Aarthi",
+      "Status": "Submitted"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group - Reinstate",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 2,
+      "Region": "Tenvb",
+      "RequestedDate": "02.11.2024",
+      "RequestedBy": "Aswin",
+      "Status": "Submitted"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group 1",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 2,
+      "Region": "Tenv7",
+      "RequestedDate": "10.11.2024",
+      "RequestedBy": "Aswin",
+      "Status": "In Progress"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group 1",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 2,
+      "Region": "Tenv7",
+      "RequestedDate": "11.11.2024",
+      "RequestedBy": "Saravanan",
+      "Status": "Completed"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group 1",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID":2,
+      "Region": "Tenvb",
+      "RequestedDate": "02.11.2024",
+      "RequestedBy": "Aswin",
+      "Status": "Completed"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group 1",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 3,
+      "Region": "Tenv7",
+      "RequestedDate": "02.11.2024",
+      "RequestedBy": "Saravanan",
+      "Status": "In Progress"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group 1",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 3,
+      "Region": "Tenv7",
+      "RequestedDate": "04.11.2024",
+      "RequestedBy": "Aarthi",
+      "Status": "Completed"
+    },
+    {
+      "RequestId": "Title 1",
+      "RequestType": "Group 1",
+      "RequestTitle": "Lorem Ipsum",
+      "ProjectID": 3,
+      "Region": "Tenv7",
+      "RequestedDate": "04.11.2024",
+      "RequestedBy": "Venkat",
+      "Status": "In Progress"
+    },
+    {
+      
+        "RequestId": "Title 3",
+        "RequestType": "Group 1",
+        "RequestTitle": "Lorem Ipsum",
+        "ProjectID": 3,
+        "Region": "Tenv7",
+        "RequestedDate": "08.11.2024",
+        "RequestedBy": "Venkat",
+        "Status": "Completed"
+      },
+      {
+        
+          "RequestId": "Title 1",
+          "RequestType": "Group 1",
+          "RequestTitle": "Lorem Ipsum",
+          "ProjectID": 3,
+          "Region": "Tenv7",
+          "RequestedDate": "04.11.2024",
+          "RequestedBy": "Venkat",
+          "Status": "Failed"
+        
+      },
+    { "RequestId": "Title 2",
+    "RequestType": "Group 1",
+    "RequestTitle": "Lorem Ipsum",
+    "ProjectID": 3,
+    "Region": "Tenv7",
+    "RequestedDate": "28.10.2024",
+    "RequestedBy": "Venkat",
+    "Status": "Completed"
+
+    },
+    {
+      "RequestId": "Title 2",
+      "RequestType": "Group 2",
+      "RequestTitle": "Dolor Sit Amet",
+      "ProjectID": 1,
+      "Region": "Benv3",
+      "RequestedDate": "05.11.2024",
+      "RequestedBy": "Divya",
+      "Status": "Submitted"
+    },
+    {
+      "RequestId": "Title 3",
+      "RequestType": "Group 3",
+      "RequestTitle": "Consectetur Adipiscing",
+      "ProjectID": 2,
+      "Region": "Tenv9",
+      "RequestedDate": "06.11.2024",
+      "RequestedBy": "Kiran",
+      "Status": "In Progress"
+    },
+    {
+      "RequestId": "Title 4",
+      "RequestType": "Group 1",
+      "RequestTitle": "Elit Integer",
+      "ProjectID": 3,
+      "Region": "Renv2",
+      "RequestedDate": "07.11.2024",
+      "RequestedBy": "Meena",
+      "Status": "Failed"
+    },
+    {
+      "RequestId": "Title 5",
+      "RequestType": "Group 2",
+      "RequestTitle": "Velit Aliquam",
+      "ProjectID": 1,
+      "Region": "Senv8",
+      "RequestedDate": "08.11.2024",
+      "RequestedBy": "Raj",
+      "Status": "Completed"
+    },
+    {
+      "RequestId": "Title 6",
+      "RequestType": "Group 3",
+      "RequestTitle": "Nullam Et Libero",
+      "ProjectID": 2,
+      "Region": "Lenv3",
+      "RequestedDate": "09.11.2024",
+      "RequestedBy": "Swathi",
+      "Status": "Submitted"
+    },
+    {
+      "RequestId": "Title 7",
+      "RequestType": "Group 1",
+      "RequestTitle": "Sed Tempus",
+      "ProjectID": 1,
+      "Region": "Genv4",
+      "RequestedDate": "10.11.2024",
+      "RequestedBy": "Mohan",
+      "Status": "In Progress"
+    },
+    {
+      "RequestId": "Title 8",
+      "RequestType": "Group 2",
+      "RequestTitle": "Etiam Vitae",
+      "ProjectID": 3,
+      "Region": "Kenv5",
+      "RequestedDate": "11.11.2024",
+      "RequestedBy": "Lakshmi",
+      "Status": "Completed"
+    },
+    {
+      "RequestId": "Title 9",
+      "RequestType": "Group 3",
+      "RequestTitle": "Mauris Vel",
+      "ProjectID": 2,
+      "Region": "Denv7",
+      "RequestedDate": "12.11.2024",
+      "RequestedBy": "Naveen",
+      "Status": "Submitted"
+    },
+    {
+      "RequestId": "Title 10",
+      "RequestType": "Group 1",
+      "RequestTitle": "Amet Convallis",
+      "ProjectID": 1,
+      "Region": "Fenv6",
+      "RequestedDate": "13.11.2024",
+      "RequestedBy": "Vikram",
+      "Status": "Failed"
+    },
+    {
+      "RequestId": "Title 11",
+      "RequestType": "Group 2",
+      "RequestTitle": "Proin Lobortis",
+      "ProjectID": 3,
+      "Region": "Nenv8",
+      "RequestedDate": "14.11.2024",
+      "RequestedBy": "Shalini",
+      "Status": "In Progress"
+    }
+    
+    
+  ],
   "reservedData": [
     {
       "title": "Checklist Omicron",
@@ -551,5 +878,35 @@
       "status": "In Progress",
       "id": "dfc3"
     }
+  ],
+
+
+  "alerts": [
+    {
+      "message": "Scheduled system maintenance on November 10th from 2:00 AM to 5:00 AM.",
+      "timestamp": "2024-11-05 | 09:26:08 AM"
+    },
+    {
+      "message": "New dashboard features will be available from November 12th. Check out the updates!",
+      "timestamp": "2024-11-04 | 15:45:00 AM"
+    },
+    {
+      "message": "Your password must now contain at least one special character. Please update your password by November 15th.",
+      "timestamp": "2024-11-02 | 12:30:00 AM"
+    },
+    {
+      "message": "Our office will be closed for Thanksgiving on November 23rd. Enjoy the holiday!",
+      "timestamp": "2024-10-30 | 08:00:00 AM"
+    },
+    {
+      "message": "Annual performance reviews are due by November 30th. Please complete your self-assessment.",
+      "timestamp": "2024-10-25 | 10:15:00 AM"
+    }
   ]
-}
+   
+  }
+  
+
+    
+    
+

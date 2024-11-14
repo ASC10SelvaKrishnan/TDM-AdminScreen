@@ -1,5 +1,7 @@
-
+<div class="app-container">
     <div class="header">
+
+
         <div class="welcome-text">
             <h1>Hello, <span>John</span></h1>
             <p>Welcome Back</p>
@@ -8,22 +10,24 @@
         <div class="filters">
             <div class="filter-group">
                 <label class="filter-label" for="time-range">
-                    Time Range<span class="asterisk">*</span>
+                    <span class="asterisk">*</span> Time Range
                 </label>
-                <select id="time-range">
-                    <option>This Week</option>
-                    <option>This Month</option>
-                    <option>This Year</option>
-                </select>
+
+                <select id="time-range" (change)="onTimeRangeChange($event)">
+                    <option value="Select">Select</option>
+                    <option value="This Week">This Week</option>
+                    <option value="This Month">This Month</option>
+                    <option value="This Year">This Year</option>
+                  </select>
             </div>
 
             <div class="filter-group">
                 <label class="filter-label" for="project">
-                    Project<span class="asterisk">*</span>
+                    <span class="asterisk">*</span> Project
                 </label>
-                <select id="project">
-                    <option>Choose</option>
-                    <option>Project A</option>
+                <select id="project"[(ngModel)]="selectedProject" (change)="applyFilters()">
+                    <option value="All">All</option>
+                    <option> Project A</option>
                     <option>Project B</option>
                     <option>Project C</option>
                 </select>
@@ -37,7 +41,7 @@
         <div class="card highlight-1">
             <div class="card-title">Data requests submitted through this tool</div>
             <div class="container">
-                <div class="card-number">50,500</div>
+                <div class="card-number">{{ metrics.totalRequests }}</div>
                 <div class="card-Color-1"></div>
             </div>
         </div>
@@ -47,26 +51,25 @@
         <div class="card highlight-2">
             <div class="card-title">Data requests submitted today</div>
             <div class="container">
-                <div class="card-number">89,000</div>
+                <div class="card-number">{{ metrics.todayRequests }}</div>
                 <div class="card-Color-2"></div>
             </div>  
-        </div>
-
-    
-        <div class="card highlight-3">
-            <div class="card-title">Average time per automation workflow</div>
-            <div class="container">
-                <div class="card-number">24 min</div>
-                <div class="card-Color-3"></div>
-            </div>
         </div>
 
        
         <div class="card highlight-4">
             <div class="card-title">No. of data requests submitted per Domain</div>
             <div class="container">
-                <div class="card-number">34</div>
+                <div class="card-number">{{ metrics.domainRequests }}</div>
                 <div class="card-Color-4"></div>
+            </div>
+        </div>
+
+        <div class="card highlight-3">
+            <div class="card-title">Average time per automation workflow</div>
+            <div class="container">
+                <div class="card-number">{{ metrics.averageWorkflowTime }}</div>
+                <div class="card-Color-3"></div>
             </div>
         </div>
 
@@ -80,41 +83,27 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-move" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
                           </svg>
-                        <h3 class="status-title">Status</h3>
+                        <h3 class="status-title">Request Status</h3>
                     </div>
                 </div>
                 <div class="status-card-content">
-                    <div class="pie-chart-container">
-                        <div class="pie-chart"></div>
-                        <div class="pie-chart-center">
-                            <span class="pie-chart-total">45623</span>
-                            <span class="pie-chart-label">Total</span>
+                        <div class="donut-chart-container">
+                          <canvas id="myDonutChart"></canvas>
+                          <div class="donut-chart-center">
+                            <span class="donut-chart-label">Total Requests : </span>
+                            <span class="donut-chart-total">{{ statusData.total }}</span>
+                          </div>
                         </div>
-                    </div>
-                    <ul class="status-list">
-                            <li class="status-item completed">
-                                <span class="status-dot"></span>
-                                <span class="status-text">Completed</span>
-                                <span class="status-percentage">20%</span>
-                            </li>
-                            <li class="status-item submitted">
-                                <span class="status-dot"></span>
-                                <span class="status-text">Submitted</span>
-                                <span class="status-percentage">20%</span>
-                            </li>
-                            <li class="status-item in-progress">
-                                <span class="status-dot"></span>
-                                <span class="status-text">In Progress</span>
-                                <span class="status-percentage">40%</span>
-                            </li>
-                            <li class="status-item failed">
-                                <span class="status-dot"></span>
-                                <span class="status-text">Failed</span>
-                                <span class="status-percentage">20%</span>
-                            </li>
-                        
+                        <ul class="status-list">
+                          <li class="status-item" *ngFor="let category of statusData.categories" [ngClass]="category.class">
+                            <span class="status-dot"></span>
+                            <span class="status-text">{{ category.name }}</span>
+                            <span class="status-percentage">{{ category.percentage }}%</span>
+                          </li>
                         </ul>
                 </div>
+                      
+             
             </div>
             
             <div class="custom-card custom-notification-card">
@@ -149,63 +138,112 @@
                     </ul>
                 </div>
                 <div class="custom-see-all-button">
-                    <button>SEE ALL    > </button>
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                      </svg> -->
-                </div>
+                    <a [routerLink]="'/alerts'">
+                        <button class="button-with-icon">
+                          SEE ALL
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" stroke="currentColor" stroke-width="2"/>
+                          </svg>
+                        </button>
+                      </a>
+                    
+                  </div>
             </div>
         </div>
        
                          
-            
-            <div class="custom-request-table-card"></div>
+           
+
+
+
+
+            <div class="custom-request-table-card">
                 <h3 class="custom-request-table-title">All Request</h3>
                 <table class="custom-request-table">
                     <thead>
                         <tr>
-                            <th>Request Id</th>
-                            <th>Request Type</th>
-                            <th>Request Title</th>
-                            <th>Project ID</th>
-                            <th>Region</th>
+                            <th>
+                                Request Id<i class="bi bi-sliders"(click)="toggleFilter('RequestId')"></i>
+                                <div *ngIf="showFilter.RequestId">
+                                    <input type="text" [(ngModel)]="filters.RequestId" (input)="applyFilterForRequests()" placeholder="Filter by RequestId" />
+                                  </div>
+                                </th>
+                            
+                            <th>Request Type<i class="bi bi-sliders"(click)="toggleFilter('RequestType')"></i>
+                                <div *ngIf="showFilter.RequestType">
+                                    <input type="text" [(ngModel)]="filters.RequestType" (input)="applyFilterForRequests()" placeholder="Filter by RequestType" />
+                                  </div>
+                                 </th>
+
+                            <th>Request Title<i class="bi bi-sliders"(click)="toggleFilter('RequestTitle')"></i>
+                                <div *ngIf="showFilter.RequestTitle">
+                                    <input type="text" [(ngModel)]="filters.RequestTitle" (input)="applyFilterForRequests()" placeholder="Filter by RequestTitle" />
+                                  </div>
+                                </th>
+
+                            <th>Project ID<i class="bi bi-sliders"(click)="toggleFilter('ProjectID')"></i>
+                                <div *ngIf="showFilter.ProjectID">
+                                    <input type="text" [(ngModel)]="filters.ProjectID" (input)="applyFilterForRequests()" placeholder="Filter by ProjectID" />
+                                  </div>
+                                </th>
+
+                            <th>Region<i class="bi bi-sliders"(click)="toggleFilter('Region')"></i>
+                                <div *ngIf="showFilter.Region">
+                                    <input type="text" [(ngModel)]="filters.Region" (input)="applyFilterForRequests()" placeholder="Filter by Region" />
+                                  </div>
+                                </th>
+
                             <th>Requested Date</th>
                             <th>Requested By</th>
-                            <th>Status</th>
+                            <th>Status<i class="bi bi-sliders"(click)="toggleFilter('Status')"></i>
+                                <div *ngIf="showFilter.Status">
+                                    <select [(ngModel)]="filters.Status" (change)="applyFilterForRequests()">
+                                        <option value="">All</option> <!-- Option for no filter -->
+                                        <option *ngFor="let Status of StatusOptions" [value]="Status">{{ Status }}</option>
+                                      </select>
+                                    </div>
+                                </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let request of requests">
+                        <tr *ngFor="let request of filteredRequestsData" >
                             <td>{{ request.RequestId }}</td>
-                            <td>{{ request.requestType }}</td>
-                            <td>{{ request.requestTitle }}</td>
-                            <td>{{ request.projectID }}</td>
-                            <td>{{ request.region }}</td>
-                            <td>{{ request.requestedDate }}</td>
-                            <td>{{ request.requestedBy }}</td>
-                            <td>{{ request.status }}</td>
-                        </tr>
+                            <td>{{ request.RequestType }}</td>
+                            <td>{{ request.RequestTitle }}</td>
+                            <td>{{ request.ProjectID }}</td>
+                            <td>{{ request.Region }}</td>
+                            <td>{{ request.RequestedDate }}</td>
+                            <td>{{ request.RequestedBy }}</td>
+                            <td>{{ request.Status }}</td>
+                            </tr>
 
                     </tbody>
                 </table>
-                    <!-- Flex container for Items per page and Pagination controls -->
-    <!-- <div class="pagination-controls-container">
-        <div class="items-per-page">
-          <label for="pageSize">Show :</label>
-          <select id="pageSize" [(ngModel)]="pageSize">
-            <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
-          </select>
-        </div>
-  
-        <div class="pagination" style="margin-top: 10px;">
-        Pagination controls 
-        <pagination-controls
-          (pageChange)="page = $event"
-          previousLabel="Prev"
-          nextLabel="Next"
-          firstLabel="First"
-          lastLabel="Last">
-        </pagination-controls>
-        </div>
-     </div>
-   </div> -->
+
+            </div>
+
+            <div class="pagination-controls-container">
+                <div class="items-per-page">
+                  <label for="pageSize">Show :</label>
+                  <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+                    <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+                  </select>
+                </div>
+                
+                <div class="pagination">
+                  <button (click)="goToPage(page - 1)" [disabled]="page === 1">Prev</button>
+                  <button *ngFor="let p of visiblePages" (click)="goToPage(p)" [class.active]="p === page">{{ p }}</button>
+                  <button (click)="goToPage(page + 1)" [disabled]="page === totalPages">Next</button>
+                </div>
+              </div>
+              
+ 
+
+
+</div>            
+               
+
+             
+
+    
+

@@ -3,7 +3,7 @@
     <div *ngIf="alerts.length > 0; else noNotifications">
       <ul>
         <li *ngFor="let alerts of alerts">
-          <p class="alert-message">{{ alerts.message }}</p>
+          <p class="alert-notifications">{{ alerts.message }}</p>
           <span>{{ alerts.timestamp }}</span>
         </li>
       </ul>

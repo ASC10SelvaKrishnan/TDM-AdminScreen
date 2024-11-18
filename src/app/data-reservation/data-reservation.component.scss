@@ -1,0 +1,355 @@
+.breadcrumb {
+    padding: 10px;
+    margin-left: 60px;
+    margin-bottom: 0;
+    margin-top: 60px;
+}
+
+.breadcrumb-item a {
+    color: black;
+    text-decoration: none !important;
+}
+
+.Heading {
+    color: black;
+    text-align: center;
+    align-items: center;
+}
+
+.admin strong {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+// .admin strong::after {
+//     content: '';
+//     display: block;
+//     width: 6%;
+//     height: 2px;
+//     background-color: black;
+//     margin: 0 auto;
+//     margin-top: 2px;
+// }
+
+.navbar {
+    height: 45px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+    background-color: #f0f0f0;
+}
+
+.navbar,
+.setting-group {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+.nav-inside {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100%;
+    gap: 20px;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.navbar a:hover,
+.navbar input:checked + label {
+    background-color: #f7f6f6;
+    color: black;
+    border-bottom: 2px solid black;
+    height: auto;
+    width: auto;
+    padding: 6px;
+}
+
+.rule-table-container {
+    margin-left: 60px;
+    margin-right: 30px;
+    margin-top: 30px;
+    background-color: white;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .rule-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-header th {
+    background-color: rgb(241,241,241,1);
+    color: black;
+    padding: 10px;
+    padding-left: 10px;
+    text-align: left;
+    position: relative;
+  }
+
+.table-header th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 2px;
+  height: 35%;
+  background-color: #d1d1d2;
+}
+  
+  .table-header th i {
+    margin-left: 50px;
+  }
+  
+  .rule-table td {
+    padding: 5px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    align-content: center;
+  }
+  
+  .action-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .bi-pencil-square,
+  .bi-trash {
+    font-size: 18px;
+  }
+
+  
+.pagination-controls-container {
+  display: flex;
+  justify-content: end;
+  align-items: center; 
+  margin-top: 10px;
+}
+
+.items-per-page {
+  display: flex;
+  align-items: center;
+}
+
+.items-per-page label {
+  margin-right: 10px;
+}
+
+th {
+  position: relative;
+}
+ 
+th i.bi-sliders {
+  opacity: 0; /* Hide the slider icon by default */
+  transition: opacity 0.3s ease; /* Smooth transition for fading in */
+}
+ 
+th:hover i.bi-sliders {
+  opacity: 1; /* Show the slider icon on hover */
+}
+
+.table-dark {
+  --bs-table-bg: white;
+  --bs-table-color: #000;
+}
+
+.table-light {
+  --bs-table-bg: white;
+  --bs-table-color: #000;
+}
+
+/* Add hover effect for table rows */
+.rule-table tbody tr:hover td {
+  background-color: #d9e9f7 !important; /* Light blue background on hover */
+}
+
+.pagination-controls-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.items-per-page {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.items-per-page label {
+  margin-right: 10px;
+  font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: #0d3559;
+}
+
+.items-per-page select {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #0d3559;
+  background-color: white;
+  color: #0d3559;
+  font-weight: bold;
+  font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid rgb(133, 132, 132);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button.active {
+  background-color: #66c;
+  color: white;
+}
+
+.pagination button:disabled {
+  color: #c0c0c0;
+  background-color: #f8f8f8;
+  border: 1px solid #dcdcdc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #66c;
+  color: #f1f1f1;
+  border: 1px solid #66c;
+}
+
+.pagination button:focus {
+  outline: none;
+}
+  
+  
+// .pagination-controls-container {
+//   display: flex;
+//   justify-content: end;
+//   align-items: center; 
+//   margin-top: 10px;
+// }
+
+// .items-per-page {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .items-per-page label {
+//   margin-right: 10px;
+// }
+
+// .table-dark {
+//   --bs-table-bg: white;
+//   --bs-table-color: #000;
+// }
+
+// .table-light {
+//   --bs-table-bg: white;
+//   --bs-table-color: #000;
+// }
+
+// /* Add hover effect for table rows */
+// .rule-table tbody tr:hover td {
+//   background-color: #d9e9f7 !important; /* Light blue background on hover */
+// }
+
+// .pagination-controls-container {
+//   display: flex;
+//   gap: 40px;
+//   align-items: center;
+//   margin-top: 20px;
+// }
+
+// .items-per-page {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .items-per-page label {
+//   margin-right: 10px;
+//   color: black;
+//   font-weight: bold;
+// }
+
+// .items-per-page select {
+//   border-radius: 5px;
+//   padding: 5px;
+//   border: 1px solid black;
+//   background-color: #f0f8ff;
+//   color: black;
+//   font-weight: bold;
+// }
+
+// .record-info {
+//   color: black;
+//   font-weight: bold;
+// }
+
+// .pagination-buttons {
+//   display: flex;
+//   gap: 10px;
+// }
+
+// .pagination-buttons button {
+//   color: black;
+//   background-color: #f0f8ff;
+//   padding: 8px 16px;
+//   border-radius: 5px;
+//   border: 1px solid black;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
+
+// .pagination-buttons button:hover {
+//   background-color: #66c;
+//   color: #fefefe;
+// }
+
+// .pagination-buttons button:disabled,
+// .pagination-buttons button:disabled:hover {
+//   background-color: #dcdcdc;
+//   color: #c0c0c0;
+//   cursor: not-allowed;
+// }
+  

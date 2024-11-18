@@ -1,0 +1,504 @@
+.breadcrumb {
+    padding: 10px;
+    margin-left: 60px;
+    margin-bottom: 0;
+    margin-top: 60px;
+    //font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .breadcrumb-item a {
+    color: #66c;
+    text-decoration: none !important;
+  }
+  
+  .reports {
+    text-align: center; /* This centers the h1 */
+    font-size: 30px;
+    //font-family: 'Times New Roman', Times, serif;
+    margin-left: 160px;
+    margin-right:130px;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px #c2c4cd solid;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+  }
+
+  .row-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 15px;
+    gap: 40px;
+}
+
+.number-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 6px 24px;
+  border-radius: 8px;
+  width: 200px; /* Set a fixed width, adjust as needed */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  // margin-bottom: 4px;
+  margin-left: 50px;
+  // margin-top: 4px; /* Adjust this value to move the card downwards */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(204, 204, 255);
+  border-radius: 16px; /* Adjust this value for more or less curve */
+  width: 40px; /* Width of the square */
+  height: 40px; /* Height of the square */
+  margin-right: 16px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  color: #66c ;
+}
+
+.number {
+  font-size: 24px; /* Increase the font size as needed */
+  font-weight: bold; /* Make the number bold */
+  color: #333333;
+  //font-family: 'Times New Roman', Times, serif;
+  margin-left: auto; /* Push the number to the right end */
+}
+
+
+
+.filters {
+    display: flex;
+    gap: 24px;
+    margin-left: 160px; /* Slight left adjustment for the filters */
+    
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: bold;
+    //font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.filter-label .asterisk {
+    color: #c00;
+    margin-right: 6px;
+}
+
+// select {
+//     appearance: none; /* Hide the default arrow */
+//     padding: 10px 16px;
+//     border-radius: 4px;
+//     border: 1px solid #ddd;
+//     font-size: 14px;
+//     font-weight: 400;
+//     color: #000000;
+//     background-color: #fff;
+//     cursor: pointer;
+//     width: 200px;
+//     height: 38px;
+//     font-family: 'Times New Roman', Times, serif;
+// }
+
+// select:hover {
+//     border-color: #66c;
+// }
+
+.select-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 200px;
+  //font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
+.caret {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  top: 6px; /* Adjust this value to move the caret upwards */
+  transition: transform 0.1s ease-in-out; /* Add transition to the caret itself */
+  cursor:pointer;
+}
+
+
+.rotated {
+  transform: rotate(-180deg); /* Rotate the caret to point upward */
+}
+
+/* Dropdown menu appears above the button */
+.dropdown-menu.dropdown-up {
+  display: block;
+  position: absolute;
+  bottom: 100%; /* Positions the dropdown menu above the button */
+  left: 0;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Shadow adjusted for dropdown-up */
+  transition: opacity 0.2s ease-in-out; /* Transition for smooth fade-in */
+  
+}
+
+.dropdown-menu li {
+  padding: 6px;
+  cursor: pointer;
+  //font-family: 'Times New Roman', Times, serif;
+}
+
+.dropdown-menu li:hover {
+  background-color: #616161;
+  color: white;
+}
+
+.download-button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #3d3db8; /* Button color */
+  color: rgb(255, 255, 255); /* Text color */
+  font-size: 16px;
+  font-weight: 500;
+ // font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+  height: 42px; /* Match height with select elements */
+  margin-left: 210px; /* Move the button slightly to the right */
+  margin-top: 20px; /* Move the button slightly downwards */
+  width: 150px; /* Increase button width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px; /* Space between text and icon */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.download-button:hover {
+  background-color: #66c; /* Darker shade on hover */
+  color: #ffffff; /* Text color on hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+.download-button:hover svg {
+  fill: #ffffff; /* Icon color on hover */
+}
+
+.download-button .icon-right {
+  order: 1; /* Moves the icon to the right of the text */
+}
+
+
+
+/* Reset any browser defaults for margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in element's total size */
+}
+.rule-table-container {
+  margin-left: 60px;
+  margin-right: auto;
+  margin-top: 10px;
+  background-color: white;
+  max-width: 95%;
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensures content respects rounded corners */
+  border: 1px solid #bbb; /* Slightly darker border color */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better visibility of rounded corners */
+ 
+}
+
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.rule-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: none;
+}
+
+.table-header th,
+.rule-table td {
+  width: 25%; /* Adjust as necessary for the number of columns */
+  text-align: left; /* Consistent text alignment */
+ // font-family: 'Times New Roman', Times, serif;
+}
+
+.table-header th {
+  background-color: #F1F1F1; /* Header background color */
+  color: rgb(0, 0, 0);
+  padding: 10px; /* Increased padding for larger table */
+  text-align: left;
+  font-size: 16px; /* Increased font size */
+  //font-family: 'Times New Roman', Times, serif;
+  position: relative; /* Needed to position the pseudo-element */
+  padding-right: 30px; /* Space for the separator */
+  border-bottom: 1px solid #aaa; /* Darker separator line for the header */
+}
+.table-header th:not(:last-child) .separator {
+  position: absolute;
+  right: 0; /* Align the separator to the right of the header */
+  top: 15px; /* Adjust the vertical position */
+  width: 2px; /* Separator width */
+  height: 35%; /* Height of the separator */
+  background-color: #DDE2EB; /* Separator color */
+}
+// .table-header th::after {
+//   content: ''; /* Empty content for pseudo-element */
+//   position: absolute;
+//   top: 15px; /* Adjust to position the border vertically */
+//   right: 0;
+//   width: 2px; /* Width of the border */
+//   height: 35%; /* Height of the border (adjust as needed) */
+//   background-color: #DDE2EB; /* Border color */
+// }
+
+// .table-header th i {
+//   //  margin-left: 40px;
+//   padding-left: 20px;
+//   // margin-right: 0px;
+//   // padding-right: 0px;
+// }
+// .table-header th:hover {
+//   background-color: #66c !important; /* Change background color on hover */
+//   color: #ffffff !important; /* Change text color on hover */
+// }
+
+
+.rule-table td {
+  padding: 10px; /* Increase padding for larger cells */
+  background-color: white; /* White background for all rows */
+  color: #000;
+  font-size: 15px;
+  //font-family: 'Times New Roman', Times, serif;
+  border-bottom: 1px solid #ddd; /* Lighter row separator */
+}
+.rule-table tbody tr:last-child td {
+  border-bottom: none; /* Remove bottom border for the last row */
+}
+.rule-table tbody tr:hover {
+  background-color: #810d0d !important; /* Light gray on hover */
+  color: #ffffff !important;
+}
+
+.rule-table tbody tr:hover td {
+  background-color: #E8E8ff;
+  color: #000000 !important;
+}
+
+thead, tbody, tfoot, tr, td, th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  align-content: center;
+}
+
+/* Style for the bi bi-sliders icon */
+.table-header th i.bi {
+  font-size: 16px; /* Set the icon size */
+  color: #333; /* Set the icon color (default color) */
+  margin-left: 15px; /* Space between the text and the icon */
+  margin-right: 1px; /* Space between the icon and the separator */
+  vertical-align: middle; /* Vertically align the icon with text */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+  position: absolute;
+  right: 15px; /* Align the icon right before the separator */
+  cursor: pointer;
+}
+th i.bi-sliders {
+  opacity: 0; /* Hide the slider icon by default */
+  transition: opacity 0.3s ease; /* Smooth transition for fading in */
+}
+
+th:hover i.bi-sliders {
+  opacity: 1; /* Show the slider icon on hover */
+}
+/* On hover, change the color of the icon */
+.table-header th:hover i.bi {
+  color: #000000; /* Change icon color on hover */
+}
+.table-header th:hover {
+  background-color: #F1F1F1;/* Change background color on hover */
+  color: #000000 !important; /* Change text color on hover */
+}
+
+
+.rule-table td {
+  padding: 10px; /* Increase padding for larger cells */
+  background-color: white; /* White background for all rows */
+  color: #000;
+  font-size: 15px;
+  //font-family: 'Times New Roman', Times, serif;
+  border-bottom: 1px solid #ddd; /* Lighter row separator */
+}
+.rule-table tbody tr:hover {
+  background-color: #810d0d !important; /* Light gray on hover */
+  color: #ffffff !important;
+}
+
+.rule-table tbody tr:hover td {
+  background-color: #E8E8ff;
+  color: #000000 !important;
+}
+
+thead, tbody, tfoot, tr, td, th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  align-content: center;
+}
+
+
+// .table-dark {
+//   --bs-table-bg: #ffffff;
+//   --bs-table-color: #000000;
+// }
+
+// .table-light {
+//   --bs-table-bg: white;
+//   --bs-table-color: #000;
+// }
+// .btn-icon {
+//   background: transparent;
+//   border: none;
+//   cursor: pointer;
+//   color: #66c;
+// }
+
+// .bi-pencil-square,
+// .bi-trash {
+//   font-size: 18px;
+//   font-family: Avenir-Book, Helvetica, Arial, sans-serif;
+// }
+
+.pagination-controls-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+  margin-right: 20px; /* Add this line to move it slightly to the left */
+}
+
+.items-per-page {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.items-per-page label {
+  margin-right: 10px;
+  //font-family: 'Times New Roman', Times, serif;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 5px 12px;   /* Adjust padding for box-shaped buttons */
+  border-radius: 5px;  /* Rounded corners for box shape */
+  border: 1px solid rgb(133, 132, 132);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+ // font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+  line-height: 1.2; /* Adjust line height to reduce overall height */
+}
+
+.pagination button.active {
+  background-color: #66c;
+  color: white;
+}
+
+.pagination button:disabled {
+  color: #c0c0c0;
+  background-color: #f8f8f8;
+  border: 1px solid #dcdcdc;
+}
+
+.pagination button:hover {
+  background-color: #66c;
+  color:#F1F1F1;
+  border: 1px solid #66c;
+}
+
+.pagination button:focus {
+  outline: none;
+}
+.items-per-page select {
+  width: 60px; /* Adjust width to your preference */
+  height: 40px;
+  padding: 7px; /* Reduce padding to fit smaller width */
+  padding-right: 30px; /* Add space for the caret */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid rgb(133, 132, 132);
+  //font-family: 'Times New Roman', Times, serif;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  //background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 8 8%22 width=%2220%22 height=%2220%22%3E%3Cpath fill=%22%23000000%22 d=%22M2 3h4L4 5z%22/%3E%3C/svg%3E');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  border-radius: 5px;
+}
+
+
+.items-per-page select::-ms-expand {
+  display: none; /* Remove default caret in IE */
+}
+
+// /* Add custom black caret */
+// .items-per-page select {
+//   background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 8 8%22 width=%2220%22 height=%2220%22%3E%3Cpath fill=%22%23000000%22 d=%22M2 3h4L4 5z%22/%3E%3C/svg%3E');
+//   background-position: right 5px center;
+//   background-repeat: no-repeat;
+//   background-size: 18px;
+// }
+
+/* Flip the caret upwards when the dropdown is open */
+.caret.rotated {
+  transform: scaleY(-1); /* Flip the caret vertically */
+  transition: transform 0.01s ease-in-out; /* Faster transition */
+}
+
+/* Styling for the dropdown container and caret */
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer; /* Adds a pointer cursor to indicate interactivity */
+}
+
+

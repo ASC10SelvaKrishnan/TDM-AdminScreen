@@ -32,7 +32,7 @@
             "styles": [
               "src/styles.scss",
                "node_modules/bootstrap/scss/bootstrap.scss",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.scss"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TDM_Admin_Screen:build:production"
+              "buildTarget": "TDM_Admin_Screen:build:production"
             },
             "development": {
-              "browserTarget": "TDM_Admin_Screen:build:development"
+              "buildTarget": "TDM_Admin_Screen:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TDM_Admin_Screen:build"
+            "buildTarget": "TDM_Admin_Screen:build"
           }
         },
         "test": {

@@ -1,0 +1,52 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item"><a href="/user-control">User Control</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{ isEditMode ? 'Edit User' : 'Create New User' }}
+    </li>
+    </ol>
+</nav>
+
+<div class="Heading">
+    <div class="admin">
+        <p><strong>{{ isEditMode ? 'Edit User' : 'Create New User' }}</strong></p>
+    </div>
+</div>
+
+<div class="input-container">
+    <!-- Full Name input -->
+    <div class="field-group">
+      <label for="Name">Name</label>
+      <input type="text" id="Name" placeholder="Enter your name" class="input-field" [(ngModel)] = "tableData.name" />
+    </div>
+
+    <!-- Gender dropdown -->
+    <div class="field-group">
+      <label for="designation">Designation</label>
+      <select id="designation" class="input-field" [(ngModel)] = "tableData.designation">
+        <option value="" disabled selected>Select Designation</option>
+        <option value="manager">Manager</option>
+        <option value="teamlead">TeamLead</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <!-- Country dropdown -->
+    <div class="field-group">
+      <label for="access">Access</label>
+      <select id="access" class="input-field" [(ngModel)] = "tableData.access">
+        <option value="" disabled selected>Select Access</option>
+        <option value="granted">Granted</option>
+        <option value="denied">Denied</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+</div>
+
+<div class="button-container">
+    <button class="button cancel-button" (click)="navigateToUserControl()">Cancel</button>
+    <button class="button submit-button" (click)="createNewUser()">
+      {{ isEditMode ? 'Update' : 'Save' }}
+    </button>
+</div>

@@ -1,0 +1,219 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/home">Home</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Data Reservation</li>
+  </ol>
+</nav>
+
+<div class="Heading">
+  <div class="admin">
+      <p><strong>Data Reservation</strong></p>
+  </div>
+</div>
+
+<div class="container-admin">
+  <div class="navbar">
+      <div class="nav-inside">
+          <!-- Radio buttons to switch between Reserved data sets and Unreserve data sets -->
+          <input type="radio" id="reserved-data-sets" name="nav" [checked]="activeControl === 'reserved-data-sets'" (change)="changeControl('reserved-data-sets')">
+          <label for="reserved-data-sets">Reserved data sets</label>
+
+          <input type="radio" id="Unreserve-data-sets" name="nav" [checked]="activeControl === 'Unreserve-data-sets'" (change)="changeControl('Unreserve-data-sets')">
+          <label for="Unreserve-data-sets">Unreserve data sets</label>
+      </div>
+  </div>
+
+  <!-- Conditionally show Reserved data sets -->
+  <div *ngIf="activeControl === 'reserved-data-sets'" id="reserved-data-sets" class="content-section active">
+      <div class="rule-table-container">
+          <div class="table-responsive">
+            <table class="table rule-table">
+              <thead class="table-header">
+                <tr>
+                  <th>
+                    Title <i class="bi bi-sliders" (click)="toggleFilterForReservedData('title')"></i>
+                    <div *ngIf="showFilterForReservedData.title">
+                      <input type="text" [(ngModel)]="filtersForReservedData.title" (input)="applyFilterForReservedData()" placeholder="Filter By Title" />
+                    </div>
+                  </th>
+                  <th>
+                    Project Id <i class="bi bi-sliders" (click)="toggleFilterForReservedData('id')"></i>
+                    <div *ngIf="showFilterForReservedData.id">
+                      <input type="text" [(ngModel)]="filtersForReservedData.id" (input)="applyFilterForReservedData()" placeholder="Filter By Id" />
+                    </div>
+                  </th>
+                  <th>Created Date</th>
+                  <th>
+                    Group <i class="bi bi-sliders" (click)="toggleFilterForReservedData('group')"></i>
+                    <div *ngIf="showFilterForReservedData.group">
+                      <select [(ngModel)]="filtersForReservedData.group" (change)="applyFilterForReservedData()" >
+                        <option value="">All</option> <!-- Option for no filter -->
+                        <option *ngFor="let group of groupOptions" [value]="group">{{ group }}</option>
+                      </select>
+                    </div>
+                  </th>
+                  <th>
+                    Status <i class="bi bi-sliders" (click)="toggleFilterForReservedData('status')"></i>
+                    <div *ngIf="showFilterForReservedData.status">
+                      <select [(ngModel)]="filtersForReservedData.status" (change)="applyFilterForReservedData()" >
+                        <option value="">All</option> <!-- option for no filter -->
+                        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+                      </select>
+                    </div>
+                  </th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of filteredReservedData | paginate: { itemsPerPage: pageSize, currentPage: pageForReservedData };
+                      let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
+                  <td>{{ x.title }}</td>
+                  <td>{{ x.id }}</td>
+                  <td>{{ x.createddate}}</td>
+                  <td>{{ x.group }}</td>
+                  <td>{{ x.status }}</td>
+                  <td>
+                    <div class="action-icons">
+                      <button class="btn btn-icon" [routerLink]="['/edit-data-reservation',x.id,'Edit Reserved Data Set']">
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                      <button class="btn btn-icon" (click)="deleteRuleForReservedData(x.id)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+       
+            <div class="pagination-controls-container">
+              <div class="items-per-page">
+                <label for="pageSize">Show :</label>
+                <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForReserved()">
+                  <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
+                </select>
+              </div>
+
+              <div class="pagination">
+                <button (click)="goToPageReservedData(pageForReservedData - 1)" [disabled]="pageForReservedData === 1">Prev</button>
+               
+                <button *ngFor="let p of visiblePagesReserved" (click)="goToPageReservedData(p)" [class.active]="p === pageForReservedData">{{ p }}</button>
+
+                <button (click)="goToPageReservedData(pageForReservedData + 1)" [disabled]="pageForReservedData === totalReservedPages">Next</button>
+              </div>
+
+              <!-- <div class="record-info">
+                {{ startReservedRecord }} - {{ endReservedRecord }} of {{ totalReservedRecords }}
+              </div>
+       
+              <div class="pagination-buttons">
+                <button (click)="goTOFirstReserved()" [disabled]="pageForReservedData === 1">First</button>
+                <button (click)="goToPrevReserved()" [disabled]="pageForReservedData === 1">Prev</button>
+                <button (click)="goToNextReserved()" [disabled]="pageForReservedData === totalReservedPages">Next</button>
+                <button (click)="goToLastReserved()" [disabled]="pageForReservedData === totalReservedPages">Last</button>
+              </div> -->
+            </div>
+
+          </div>
+        </div>
+  </div>
+
+  <!-- Conditionally show Unreserve data sets -->
+  <div *ngIf="activeControl === 'Unreserve-data-sets'" id="Unreserve-data-sets" class="content-section active">
+      <div class="rule-table-container">
+          <div class="table-responsive">
+            <table class="table rule-table">
+              <thead class="table-header">
+                <tr>
+                  <th>
+                    Title <i class="bi bi-sliders" (click)="toggleFilterForUnreservedData('title')"></i>
+                    <div *ngIf="showFilterForUnreservedData.title">
+                      <input type="text" [(ngModel)]="filtersForUnreservedData.title" (input)="applyFilterForUnreservedData()" placeholder="Filter By Title" />
+                    </div>
+                  </th>
+                  <th>
+                    Project Id <i class="bi bi-sliders" (click)="toggleFilterForUnreservedData('id')"></i>
+                    <div *ngIf="showFilterForUnreservedData.id">
+                      <input type="text" [(ngModel)]="filtersForUnreservedData.id" (input)="applyFilterForUnreservedData()" placeholder="Filter By Id" />
+                    </div>
+                  </th>
+                  <th>Created Date</th>
+                  <th>
+                    Group <i class="bi bi-sliders" (click)="toggleFilterForUnreservedData('group')"></i>
+                    <div *ngIf="showFilterForUnreservedData.group">
+                      <select [(ngModel)]="filtersForUnreservedData.group" (change)="applyFilterForUnreservedData()" >
+                        <option value="">All</option>  <!-- Option for no filter -->
+                        <option *ngFor="let group of groupOptions" [value]="group">{{ group }}</option>
+                      </select>
+                    </div>
+                  </th>
+                  <th>
+                    Status <i class="bi bi-sliders" (click)="toggleFilterForUnreservedData('status')"></i>
+                    <div *ngIf="showFilterForUnreservedData.status">
+                      <select [(ngModel)]="filtersForUnreservedData.status" (change)="applyFilterForUnreservedData()" >
+                        <option value="">All</option> <!-- option for no filter -->
+                        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+                      </select>
+                    </div>
+                  </th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let y of filteredUnreservedData | paginate: { itemsPerPage: pageSize, currentPage: pageForUnreservedData };
+                      let i = index" [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
+                  <td>{{ y.title }}</td>
+                  <td>{{ y.id }}</td>
+                  <td>{{ y.createddate}}</td>
+                  <td>{{ y.group }}</td>
+                  <td>{{ y.status }}</td>
+                  <td>
+                    <div class="action-icons">
+                      <button class="btn btn-icon" [routerLink]="['/edit-data-reservation',y.id,'Edit Unreserved Data Set']">
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                      <button class="btn btn-icon" (click)="deleteRuleForUnreservedData(y.id)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+         
+            <div class="pagination-controls-container">
+              <div class="items-per-page">
+                <label for="pageSize">Show :</label>
+                <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForUnreserved()">
+                  <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
+                </select>
+              </div>
+
+              <div class="pagination">
+                <button (click)="goToPageUnreservedData(pageForUnreservedData - 1)" [disabled]="pageForUnreservedData === 1">Prev</button>
+
+                <button *ngFor="let p of visiblePagesUnreserved" (click)="goToPageUnreservedData(p)" [class.active]="p === pageForUnreservedData">{{ p }}</button>
+
+                <button (click)="goToPageUnreservedData(pageForUnreservedData + 1)" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
+
+
+              </div>
+
+              <!-- <div class="record-info">
+                {{ startUnreservedRecord }} - {{ endUnreservedRecord }} of {{ totalUnreservedRecords }}
+              </div>
+       
+              <div class="pagination-buttons">
+                <button (click)="goTOFirstUnreserved()" [disabled]="pageForUnreservedData === 1">First</button>
+                <button (click)="goToPrevUnreserved()" [disabled]="pageForUnreservedData === 1">Prev</button>
+                <button (click)="goToNextUnreserved()" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
+                <button (click)="goToLastUnreserved()" [disabled]="pageForUnreservedData === totalUnreservedPages">Last</button>
+              </div> -->
+            </div>
+
+
+          </div>
+        </div>
+ 
+  </div>
+</div>

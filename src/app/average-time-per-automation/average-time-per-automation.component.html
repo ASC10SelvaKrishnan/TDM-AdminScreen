@@ -1,0 +1,181 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/home']">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/reports']">Reports</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Average Time Per Automation Workflow
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="reports-main">
+    <h1 class="reports">
+        Average Time Per Automation Workflow
+    </h1>
+  </div>
+  
+  <!-- Container to hold both number card and form in the same row -->
+  <div class="row-container">
+    <div class="number-card">
+      <div class="icon-container">
+        <svg 
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24"
+        >
+          <rect width="16" height="20" x="4" y="2" rx="2" fill="currentColor"/>
+          <rect width="10" height="2" x="7" y="8" fill="#fff"/>
+          <rect width="10" height="2" x="7" y="12" fill="#fff"/>
+          <rect width="10" height="2" x="7" y="16" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="number">50,500</div>
+    </div>
+  
+    <div class="filters">
+      <!-- Time Range Dropdown -->
+      <div class="filter-group">
+        <label class="filter-label">
+          <span class="asterisk">*</span>Time Range
+        </label>
+        <div class="select-container time-range" (click)="toggleDropdown('timeRange', $event)">
+          <div class="dropdown">
+            <span class="dropdown-selected">{{ selectedOptions.timeRange }}</span>
+            <span class="caret" [ngClass]="{'rotated': isOpen.timeRange}">
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 3L5 8L10 3H0Z"/>
+              </svg>
+            </span>
+          </div>
+          <ul *ngIf="isOpen.timeRange" class="dropdown-menu dropdown-up">
+            <li (click)="selectOption('This Week', 'timeRange')">This Week</li>
+            <li (click)="selectOption('This Month', 'timeRange')">This Month</li>
+            <li (click)="selectOption('This Year', 'timeRange')">This Year</li>
+          </ul>
+        </div>
+      </div>
+    
+      <!-- Project Dropdown -->
+      <div class="filter-group">
+        <label class="filter-label">
+          <span class="asterisk">*</span>Project
+        </label>
+        <div class="select-container project" (click)="toggleDropdown('project', $event)">
+          <div class="dropdown">
+            <span class="dropdown-selected">{{ selectedOptions.project }}</span>
+            <span class="caret" [ngClass]="{'rotated': isOpen.project}">
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 3L5 8L10 3H0Z"/>
+              </svg>
+            </span>
+          </div>
+          <ul *ngIf="isOpen.project" class="dropdown-menu dropdown-up">
+            <li (click)="selectOption('All', 'project')">All</li>
+            <li (click)="selectOption('Group - Reinstate', 'project')">Group - Reinstate</li>
+            <li (click)="selectOption('Group - Create New', 'project')">Group - Create New</li>
+            <li (click)="selectOption('Member - Create New', 'project')">Member - Create New</li>
+          </ul>
+        </div>
+      </div>
+    
+      
+      <!-- Download Button -->
+      <button class="download-button">
+        Download
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-download" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+        </svg>  
+      </button>
+    </div>
+  </div>
+  
+  <div class="rule-table-container">
+    <div class="table-responsive">
+      <table class="table rule-table">
+        <thead class="table-header">
+          <tr>
+            <th>
+              Request Id
+              <i class="bi bi-sliders"></i>
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+            <th>
+              Project Name
+              <i class="bi bi-sliders"></i>
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+            <th>
+              Release Date
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+            <th>
+              Request Name
+              <i class="bi bi-sliders"></i>
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+            <th>
+              Region
+              <i class="bi bi-sliders"></i>
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+            <th>
+              Request Date
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+            <th>
+              Requestor
+              <i class="bi bi-sliders"></i>
+              <div class="separator"></div> <!-- Column separator div -->
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rule of tableData | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index"
+              [ngClass]="{'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0}">
+            <td>{{ rule.id }}</td>
+            <td>{{ rule.projectName }}</td>
+            <td>{{ rule.releaseDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ rule.requestName }}</td>
+            <td>{{ rule.region }}</td>
+            <td>{{ rule.requestDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ rule.requestor }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- pagination controls -->
+  <div class="pagination-controls-container">
+    <div class="items-per-page">
+      <label for="pageSize">Show :</label>
+      <!-- Wrap the select and the caret icon -->
+      <div class="dropdown-container" (click)="toggleDropdown('pageSize', $event)">
+        <select id="pageSize" [(ngModel)]="pageSize" (change)="setPageSize(pageSize)">
+          <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
+        </select>
+        <!-- Dropdown caret icon -->
+        <span class="caret" [ngClass]="{'rotated': isOpen.pageSize}">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 3L5 8L10 3H0Z"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  
+    <div class="pagination">
+      <button (click)="goToPage(page - 1)" [disabled]="page === 1">Prev</button>
+  
+      <!-- Dynamic page numbers for the 3 boxes -->
+      <button *ngFor="let p of visiblePages" (click)="goToPage(p)" [class.active]="p === page">{{ p }}</button>
+  
+      <button (click)="goToPage(page + 1)" [disabled]="page === totalPages">Next</button>
+    </div>
+  </div>
+  
+      

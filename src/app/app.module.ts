@@ -1,7 +1,3 @@
-
-
-
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -19,14 +15,10 @@ import { EditDataReservationComponent } from './edit-data-reservation/edit-data-
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertsComponent } from './alerts/alerts.component';
-
-
-
-
-
-
-
 import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-submitted-thru-the-tool/reports-details-submitted-thru-the-tool.component';
+import { DataRequestsSubmittedComponent } from './data-requests-submitted/data-requests-submitted.component';
+import { RouterModule, Routes } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -40,19 +32,19 @@ import { ReportsDetailsSubmittedThruTheToolComponent } from './reports-details-s
     DataReservationComponent,
     EditDataReservationComponent,
     ReportsDetailsSubmittedThruTheToolComponent,
-    AlertsComponent
+    AlertsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule,
     NgxPaginationModule,
     NgChartsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
-
-
+    FormsModule,
+    DataRequestsSubmittedComponent,
 
   ],
   providers: [],

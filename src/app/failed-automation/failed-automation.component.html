@@ -1,0 +1,28 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/home']">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/reports']">Reports</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Failed Automation
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="reports-main">
+    <h1 class="reports">
+        Failed Automation
+    </h1>
+ <!-- Automation items list -->
+ <div class="automation-items">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of automationItems">
+        <div class="item-title">{{ item.title }}</div>
+        <div class="item-time text-muted">{{ item.time }}</div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { ScriptableContext } from 'chart.js';
+
 
 // Register the plugin
 Chart.register(ChartDataLabels);
@@ -17,11 +19,38 @@ interface AutomationItem {
 })
 
 export class ReportsComponent implements OnInit {
+onMonthChange // Add dataLabels plugin to show number of requests on top of each bar
+($event: Event) {
+throw new Error('Method not implemented.');
+}
   isOpen = false; // Toggle state for caret
 
   constructor(private router: Router) {}
  
-
+  OnNavigate() {
+    this.router.navigate(['/reports-details']); // Updated navigation path
+  }
+  NavigateTo(){
+    this.router.navigate(['/data-requests-submitted']);
+  }
+  NavigatePerDomain(){
+    this.router.navigate(['/data-requests-submitted-per-domain']);
+  }
+  NavigateProjects(){
+    this.router.navigate(['/projects-per-release']);
+  }
+  NavigateSuccess(){
+    this.router.navigate(['/report-to-measure-success']);
+  }
+  NavigateProjectLevel(){
+    this.router.navigate(['/reports-on-project-level']);
+  }
+  NavigateAverageTime(){
+    this.router.navigate(['/average-time-per-automation']);
+  }
+  NavigateFailedAutomation(){
+    this.router.navigate(['/failed-automation']);
+  }
   months: string[] = [
     'Month','January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
@@ -32,96 +61,110 @@ export class ReportsComponent implements OnInit {
   toggleCaret() {
     this.isOpen = !this.isOpen;
   }
-
-// Data Requests Line Chart
-dataRequestsLineChart: ChartConfiguration['data'] = {
+// Data Requests Line Chart with Enhanced Aesthetics
+dataRequestsLineChart: ChartConfiguration<'line'>['data'] = {
   datasets: [
     {
-      data: this.generateSineWaveData(20), // Decrease points for even fewer dots in the sine wave
-      backgroundColor: 'rgba(102, 102, 204, 0.2)',
-      borderColor: 'rgb(102, 102, 204)', // Color for sine wave
+      data: this.generateSineWaveData(20),
+      backgroundColor: (ctx: ScriptableContext<'line'>) => {
+        const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, ctx.chart.height);
+        gradient.addColorStop(0, 'rgba(102, 102, 204, 0.5)');
+        gradient.addColorStop(1, 'rgba(255, 204, 204, 0.2)');
+        return gradient;
+      },
+      borderColor: 'rgb(102, 102, 204)',
+      borderWidth: 2,
       pointBackgroundColor: 'rgb(102, 102, 204)',
-      pointRadius: 0, // Make points invisible
-      fill: false, // Fill under the sine wave
+      pointRadius: 3,
+      pointHoverRadius: 5,
+      fill: true,
+      tension: 0.4,
     },
     {
-      data: this.generateStraightLineData(20, 20), // Update straight line data points to match sine wave data points
-      borderColor: 'rgb(102, 102, 204)', // Updated color to match the sine wave
-      borderWidth: 2, // Width of the straight line
-      fill: false, // Do not fill under the line
-      pointRadius: 0, // Make points invisible
+      data: this.generateStraightLineData(20, 20),
+      borderColor: 'rgba(204, 102, 102, 0.8)',
+      borderWidth: 2,
+      fill: false,
+      pointRadius: 3,
+      pointHoverRadius: 5,
     }
   ],
-  labels: Array.from({ length: 20 }, (_, i) => (i * 2 + 1).toString()), // Generate odd numbers starting from 1 for 20 points
+  labels: Array.from({ length: 20 }, (_, i) => (i * 2 + 1).toString()),
 };
 
-
-OnNavigate() {
-  this.router.navigate(['/reports-details']); // Updated navigation path
-}
 // Function to generate smoother sine wave data
 generateSineWaveData(points: number): number[] {
   const sineWaveData: number[] = [];
-  const amplitude = 10; // Amplitude for sine wave
-  const frequency = 1; // Frequency of the sine wave
-  const phase = 0; // Phase shift
-  const tiltOffset = 5; // Value to tilt the sine wave
-  const xMax = 2 * Math.PI; // Max x value (2π for one full sine wave)
+  const amplitude = 8;
+  const frequency = 1;
+  const phase = 0;
+  const tiltOffset = 3;
+  const xMax = 2 * Math.PI;
 
   for (let i = 0; i < points; i++) {
-    const x = (xMax / (points - 1)) * i; // Calculate x value
-    const y = amplitude * Math.sin(frequency * x + phase); // Calculate sine value
-    sineWaveData.push(y + 20 + tiltOffset); // Offset sine wave and apply tilt
+    const x = (xMax / (points - 1)) * i;
+    const y = amplitude * Math.sin(frequency * x + phase);
+    sineWaveData.push(y + 15 + tiltOffset);
   }
   return sineWaveData;
 }
 
 // Function to generate straight line data
 generateStraightLineData(points: number, constantValue: number): number[] {
-  const lineData: number[] = [];
-  for (let i = 0; i < points; i++) {
-    lineData.push(constantValue); // Push the constant y value
-  }
-  return lineData;
+  return Array(points).fill(constantValue);
 }
 
-// Add method to handle month change
-onMonthChange(event: Event): void {
-  const selectElement = event.target as HTMLSelectElement;
-  this.selectedMonth = selectElement.value;
-  // You can add logic here to update the chart data based on the selected month
-}
-
+// Line Chart Options with Aesthetic Enhancements
 lineChartOptions: ChartConfiguration['options'] = {
   responsive: true,
   scales: {
     x: {
       grid: {
-        display: false // Hide x-axis grid lines
+        display: false,
       }
     },
     y: {
       beginAtZero: true,
       grid: {
-        display: false // Hide y-axis grid lines
+        color: 'rgba(204, 204, 204, 0.2)',
       },
       ticks: {
-        stepSize: 10, // Increase y-axis by 10
+        stepSize: 5,
+        callback: (value) => `${value}`, // Remove "units" label from y-axis
       }
     }
   },
   plugins: {
     legend: {
-      display: false, // Hide legend
+      display: false,
+    },
+    tooltip: {
+      enabled: true,
+      callbacks: {
+        label: (context) => `Data Point: ${context.raw}`,
+      },
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      titleColor: '#fff',
     },
     title: {
-      display: false, // Hide title
+      display: true,
+      //text: 'Innovative Data Requests Line Chart',
+      color: 'rgb(102, 102, 204)',
+      font: {
+        size: 16,
+        weight: 'bold'
+      },
     },
     datalabels: {
-      display: false, // Hide data labels
+      display: false,
     }
+  },
+  animation: {
+    duration: 1500,
+    easing: 'easeInOutQuad',
   }
 };
+
 
 // Domain Requests Bar Chart
 domainRequestsBarChart: ChartConfiguration['data'] = {
@@ -258,8 +301,6 @@ donutChartOptions: ChartOptions<'doughnut'> = {
     }
 },
 
-  
-    
     datalabels: {
       anchor: 'end',       // Position data labels at the end of the segments
       align: 'end',        // Align the labels to the end

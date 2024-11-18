@@ -1,6 +1,6 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/TDM-AdminScreen/src/app/home/home.component.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Reports</li>
   </ol>
 </nav>
@@ -69,58 +69,57 @@
             <div class="flex1">
               <div class="flex1 item">
                 <div class="flex-header">
-        <p>No Of Data Requests Submitted</p>
-      </div>
-    </div>
-    <div class="flex1 item">
-      <div class="flex-header">
-        <a href="#">
-          <button class="flex-item-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#66c"
-              class="bi bi-download" viewBox="0 0 16 16">
-              <path
-                d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
-              <path
-                d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
-            </svg>
-        </button>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
-<div class="report-card-flex-item">
-  <div class="report-card-flex-item-chart">
-        <div class="chart-container">
-          <div class="month-selector">
-            <select (change)="onMonthChange($event)" [value]="selectedMonth">
-              <option *ngFor="let month of months" [value]="month">{{ month }}</option>
-            </select>
+                  <p>No Of Data Requests Submitted</p>
+                </div>
+              </div>
+              <div class="flex1 item">
+                <div class="flex-header">
+                  <a href="#">
+                    <button class="flex-item-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#66c" class="bi bi-download"
+                        viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+                      </svg>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <canvas baseChart [type]="'line'" [data]="dataRequestsLineChart" [options]="lineChartOptions" height="220px">
-          </canvas>
+        </div>
+        <hr>
+        <div class="report-card-flex-item">
+          <div class="report-card-flex-item-chart">
+            <div class="chart-container">
+              <div class="month-selector">
+                <select (change)="onMonthChange($event)" [value]="selectedMonth">
+                  <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                </select>
+              </div>
+              <canvas baseChart [type]="'line'" [data]="dataRequestsLineChart" [options]="lineChartOptions" height="220px">
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="report-card-flex-item">
+          <div class="card-footer">
+            <a (click)="NavigateTo()">
+              <button class="button-with-icon">
+                SEE DETAILS
+                <span class="caret" (click)="toggleCaret()">
+                  <svg width="10" height="10" viewBox="0 0 10 10" [ngClass]="{'rotated': isOpen}" fill="#000000"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 3L5 8L10 3H0Z" />
+                  </svg>
+                </span>
+              </button>
+            </a>
+          </div>
         </div>
       </div>
-      </div>
-      <hr>
-      <div class="report-card-flex-item">
-        <div class="card-footer">
-          <a href="#">
-            <button class="button-with-icon">
-              SEE DETAILS
-              <span class="caret" (click)="toggleCaret()">
-                <svg width="10" height="10" viewBox="0 0 10 10" [ngClass]="{'rotated': isOpen}" fill="#000000" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 3L5 8L10 3H0Z"/>
-                </svg>
-              </span>                           
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-      </div>
-
+      
       <!-- Second Row -->
       <div class="report-card">
         <div class="report-card-flex">
@@ -160,7 +159,7 @@
       <hr>
       <div class="report-card-flex-item">
         <div class="card-footer">
-          <a href="#">
+          <a (click)="NavigatePerDomain()">
             <button class="button-with-icon">
               SEE DETAILS
               <span class="caret" (click)="toggleCaret()">
@@ -213,7 +212,7 @@
       <hr>
       <div class="report-card-flex-item">
         <div class="card-footer">
-          <a href="#">
+          <a (click)="NavigateProjects()">
             <button class="button-with-icon">
               SEE DETAILS
               <span class="caret" (click)="toggleCaret()">
@@ -267,7 +266,7 @@
       <hr>
       <div class="report-card-flex-item">
         <div class="card-footer">
-          <a href="#">
+          <a (click)="NavigateSuccess()">
             <button class="button-with-icon">
               SEE DETAILS
               <span class="caret" (click)="toggleCaret()">
@@ -320,7 +319,7 @@
       <hr>
       <div class="report-card-flex-item">
         <div class="card-footer">
-          <a href="#">
+          <a (click)="NavigateProjectLevel()">
             <button class="button-with-icon">
               SEE DETAILS
               <span class="caret" (click)="toggleCaret()">
@@ -379,7 +378,7 @@
       <hr>
       <div class="report-card-flex-item">
         <div class="card-footer">
-          <a href="#">
+          <a (click)="NavigateAverageTime()">
             <button class="button-with-icon">
               SEE DETAILS
               <span class="caret" (click)="toggleCaret()">
@@ -434,7 +433,7 @@
       <hr>
       <div class="report-card-flex-item">
         <div class="card-footer">
-          <a href="#">
+          <a (click)="NavigateFailedAutomation()">
             <button class="button-with-icon">
               SEE MORE
               <span class="caret" (click)="toggleCaret()">

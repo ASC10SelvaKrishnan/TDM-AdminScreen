@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 // Interface to represent the structure of the table data
 interface TableData {
   id: string;
@@ -12,11 +15,13 @@ interface TableData {
 }
 
 @Component({
-  selector: 'app-reports-details-submitted-thru-the-tool',
-  templateUrl: './reports-details-submitted-thru-the-tool.component.html',
-  styleUrls: ['./reports-details-submitted-thru-the-tool.component.scss']
+  selector: 'app-data-requests-submitted',
+  standalone: true,
+  imports: [CommonModule, RouterModule,NgxPaginationModule,FormsModule], // Add RouterModule here
+  templateUrl: './data-requests-submitted.component.html',
+  styleUrl: './data-requests-submitted.component.scss'
 })
-export class ReportsDetailsSubmittedThruTheToolComponent implements OnInit {
+export class DataRequestsSubmittedComponent implements OnInit{
   
   // Table data with updated fields and more dummy data
   tableData: TableData[] = [

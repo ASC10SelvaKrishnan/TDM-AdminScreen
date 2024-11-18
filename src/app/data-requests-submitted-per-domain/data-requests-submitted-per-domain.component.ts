@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 // Interface to represent the structure of the table data
 interface TableData {
   id: string;
@@ -10,14 +13,15 @@ interface TableData {
   requestDate: Date;
   requestor: string;
 }
-
 @Component({
-  selector: 'app-reports-details-submitted-thru-the-tool',
-  templateUrl: './reports-details-submitted-thru-the-tool.component.html',
-  styleUrls: ['./reports-details-submitted-thru-the-tool.component.scss']
+  selector: 'app-data-requests-submitted-per-domain',
+  standalone: true,
+  imports: [CommonModule, RouterModule,NgxPaginationModule,FormsModule],
+  templateUrl: './data-requests-submitted-per-domain.component.html',
+  styleUrl: './data-requests-submitted-per-domain.component.scss'
 })
-export class ReportsDetailsSubmittedThruTheToolComponent implements OnInit {
-  
+export class DataRequestsSubmittedPerDomainComponent implements OnInit {
+
   // Table data with updated fields and more dummy data
   tableData: TableData[] = [
     { id: '1234', projectName: 'Group - Reinstate', releaseDate: new Date('2024-08-21'), requestName: 'Lorem Ipsum', region: 'TENV3', requestDate: new Date('2024-08-21'), requestor: 'John' },

@@ -37,42 +37,51 @@
   </div>
 
   <div class="filters">
+    <!-- Time Range Dropdown -->
     <div class="filter-group">
-      <label class="filter-label" for="time-range">
+      <label class="filter-label">
         <span class="asterisk">*</span>Time Range
       </label>
-      <div class="select-container" (click)="toggleCaret('timeRange')">
-        <select id="time-range" (click)="$event.stopPropagation()">
-          <option>This Week</option>
-          <option>This Month</option>
-          <option>This Year</option>
-        </select>
-        <span class="caret" [ngClass]="{'rotated': isOpen.timeRange}">
-          <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 3L5 8L10 3H0Z"/>
-          </svg>
-        </span>
+      <div class="select-container time-range" (click)="toggleDropdown('timeRange', $event)">
+        <div class="dropdown">
+          <span class="dropdown-selected">{{ selectedOptions.timeRange }}</span>
+          <span class="caret" [ngClass]="{'rotated': isOpen.timeRange}">
+            <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 3L5 8L10 3H0Z"/>
+            </svg>
+          </span>
+        </div>
+        <ul *ngIf="isOpen.timeRange" class="dropdown-menu dropdown-up">
+          <li (click)="selectOption('This Week', 'timeRange')">This Week</li>
+          <li (click)="selectOption('This Month', 'timeRange')">This Month</li>
+          <li (click)="selectOption('This Year', 'timeRange')">This Year</li>
+        </ul>
       </div>
     </div>
   
+    <!-- Project Dropdown -->
     <div class="filter-group">
-      <label class="filter-label" for="project">
+      <label class="filter-label">
         <span class="asterisk">*</span>Project
       </label>
-      <div class="select-container" (click)="toggleCaret('project')">
-        <select id="project" (click)="$event.stopPropagation()">
-          <option>Choose</option>
-          <option>Group - Reinstate</option>
-          <option>Group - Create New</option>
-          <option>Member - Create New</option>
-        </select>
-        <span class="caret" [ngClass]="{'rotated': isOpen.project}">
-          <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 3L5 8L10 3H0Z"/>
-          </svg>
-        </span>
+      <div class="select-container project" (click)="toggleDropdown('project', $event)">
+        <div class="dropdown">
+          <span class="dropdown-selected">{{ selectedOptions.project }}</span>
+          <span class="caret" [ngClass]="{'rotated': isOpen.project}">
+            <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 3L5 8L10 3H0Z"/>
+            </svg>
+          </span>
+        </div>
+        <ul *ngIf="isOpen.project" class="dropdown-menu dropdown-up">
+          <li (click)="selectOption('All', 'project')">All</li>
+          <li (click)="selectOption('Group - Reinstate', 'project')">Group - Reinstate</li>
+          <li (click)="selectOption('Group - Create New', 'project')">Group - Create New</li>
+          <li (click)="selectOption('Member - Create New', 'project')">Member - Create New</li>
+        </ul>
       </div>
     </div>
+  
     
     <!-- Download Button -->
     <button class="download-button">
@@ -90,13 +99,39 @@
     <table class="table rule-table">
       <thead class="table-header">
         <tr>
-          <th>Request Id <i class="bi bi-sliders"></i></th>
-          <th>Project Name <i class="bi bi-sliders"></i></th>
-          <th>Release Date</th>
-          <th>Request Name <i class="bi bi-sliders"></i></th>
-          <th>Region <i class="bi bi-sliders"></i></th>
-          <th>Request Date</th>
-          <th>Requestor <i class="bi bi-sliders"></i></th>
+          <th>
+            Request Id
+            <i class="bi bi-sliders"></i>
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
+          <th>
+            Project Name
+            <i class="bi bi-sliders"></i>
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
+          <th>
+            Release Date
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
+          <th>
+            Request Name
+            <i class="bi bi-sliders"></i>
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
+          <th>
+            Region
+            <i class="bi bi-sliders"></i>
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
+          <th>
+            Request Date
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
+          <th>
+            Requestor
+            <i class="bi bi-sliders"></i>
+            <div class="separator"></div> <!-- Column separator div -->
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -113,15 +148,26 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
 <!-- pagination controls -->
 <div class="pagination-controls-container">
   <div class="items-per-page">
     <label for="pageSize">Show :</label>
-    <select id="pageSize" [(ngModel)]="pageSize">
-      <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
-    </select>
+    <!-- Wrap the select and the caret icon -->
+    <div class="dropdown-container" (click)="toggleDropdown('pageSize', $event)">
+      <select id="pageSize" [(ngModel)]="pageSize" (change)="setPageSize(pageSize)">
+        <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
+      </select>
+      <!-- Dropdown caret icon -->
+      <span class="caret" [ngClass]="{'rotated': isOpen.pageSize}">
+        <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 3L5 8L10 3H0Z"/>
+        </svg>
+      </span>
+    </div>
   </div>
-  
+
   <div class="pagination">
     <button (click)="goToPage(page - 1)" [disabled]="page === 1">Prev</button>
 

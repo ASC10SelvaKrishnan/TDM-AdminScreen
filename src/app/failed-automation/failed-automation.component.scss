@@ -1,0 +1,60 @@
+.breadcrumb {
+    padding: 10px;
+    margin-left: 60px;
+    margin-bottom: 0;
+    margin-top: 60px;
+    //font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .breadcrumb-item a {
+    color: #66c;
+    text-decoration: none !important;
+  }
+  
+  .reports {
+    text-align: center; /* This centers the h1 */
+    font-size: 30px;
+    //font-family: 'Times New Roman', Times, serif;
+    margin-left: 160px;
+    margin-right:130px;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px #c2c4cd solid;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+  }
+/* New styles for the automation-items list */
+.automation-items {
+    margin-top: 10px;  /* Reduced margin */
+    padding: 0 30px;   /* Increased padding on left and right */
+    display: flex;
+    //justify-content: center; /* Center horizontally */
+    //align-items: center;     /* Center vertically */
+    flex-direction: column;
+    width: 85%;             /* Set the width of the container to 90% of the parent */
+    //max-width: 1000px;      /* Optional: Restrict the maximum width to 1000px or any value you prefer */
+    margin-left: 125px;      /* Centers the container */
+    margin-right: 90px;     /* Centers the container */
+}
+
+.automation-items .list-group-item {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;   /* Increased padding for better spacing */
+    margin-bottom: 8px;  /* Reduced margin */
+    border-radius: 6px;  /* Slightly smaller border radius */
+    background-color: #f8f9fa;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    width: 100%;  /* Ensure the items take up full width */
+}
+
+.automation-items .item-title {
+    font-size: 18px;   /* Increased font size */
+    font-weight: bold;
+    color: #333;
+}
+
+.automation-items .item-time {
+    font-size: 14px;   /* Increased font size */
+    color: #777;
+    margin-top: 3px;   /* Reduced margin */
+}

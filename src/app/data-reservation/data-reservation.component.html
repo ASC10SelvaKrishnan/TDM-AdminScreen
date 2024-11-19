@@ -85,37 +85,38 @@
                 </tr>
               </tbody>
             </table>
-       
-            <div class="pagination-controls-container">
-              <div class="items-per-page">
-                <label for="pageSize">Show :</label>
-                <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForReserved()">
-                  <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
-                </select>
-              </div>
-
-              <div class="pagination">
-                <button (click)="goToPageReservedData(pageForReservedData - 1)" [disabled]="pageForReservedData === 1">Prev</button>
-               
-                <button *ngFor="let p of visiblePagesReserved" (click)="goToPageReservedData(p)" [class.active]="p === pageForReservedData">{{ p }}</button>
-
-                <button (click)="goToPageReservedData(pageForReservedData + 1)" [disabled]="pageForReservedData === totalReservedPages">Next</button>
-              </div>
-
-              <!-- <div class="record-info">
-                {{ startReservedRecord }} - {{ endReservedRecord }} of {{ totalReservedRecords }}
-              </div>
-       
-              <div class="pagination-buttons">
-                <button (click)="goTOFirstReserved()" [disabled]="pageForReservedData === 1">First</button>
-                <button (click)="goToPrevReserved()" [disabled]="pageForReservedData === 1">Prev</button>
-                <button (click)="goToNextReserved()" [disabled]="pageForReservedData === totalReservedPages">Next</button>
-                <button (click)="goToLastReserved()" [disabled]="pageForReservedData === totalReservedPages">Last</button>
-              </div> -->
-            </div>
-
           </div>
         </div>
+       
+        <div class="pagination-controls-container">
+          <div class="items-per-page">
+            <label for="pageSize">Show :</label>
+            <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForReserved()">
+              <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{size}}</option>
+            </select>
+          </div>
+
+          <div class="pagination">
+            <button (click)="goToPageReservedData(pageForReservedData - 1)" [disabled]="pageForReservedData === 1">Prev</button>
+           
+            <button *ngFor="let p of visiblePagesReserved" (click)="goToPageReservedData(p)" [class.active]="p === pageForReservedData">{{ p }}</button>
+
+            <button (click)="goToPageReservedData(pageForReservedData + 1)" [disabled]="pageForReservedData === totalReservedPages">Next</button>
+          </div>
+
+          <!-- <div class="record-info">
+            {{ startReservedRecord }} - {{ endReservedRecord }} of {{ totalReservedRecords }}
+          </div>
+   
+          <div class="pagination-buttons">
+            <button (click)="goTOFirstReserved()" [disabled]="pageForReservedData === 1">First</button>
+            <button (click)="goToPrevReserved()" [disabled]="pageForReservedData === 1">Prev</button>
+            <button (click)="goToNextReserved()" [disabled]="pageForReservedData === totalReservedPages">Next</button>
+            <button (click)="goToLastReserved()" [disabled]="pageForReservedData === totalReservedPages">Last</button>
+          </div> -->
+        </div>
+
+          
   </div>
 
   <!-- Conditionally show Unreserve data sets -->
@@ -180,40 +181,40 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
          
-            <div class="pagination-controls-container">
-              <div class="items-per-page">
-                <label for="pageSize">Show :</label>
-                <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForUnreserved()">
-                  <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
-                </select>
-              </div>
+        <div class="pagination-controls-container">
+          <div class="items-per-page">
+            <label for="pageSize">Show :</label>
+            <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChangeForUnreserved()">
+              <option *ngFor="let size of [5, 10, 15, 20]" [value]="size">{{ size }}</option>
+            </select>
+          </div>
 
-              <div class="pagination">
-                <button (click)="goToPageUnreservedData(pageForUnreservedData - 1)" [disabled]="pageForUnreservedData === 1">Prev</button>
+          <div class="pagination">
+            <button (click)="goToPageUnreservedData(pageForUnreservedData - 1)" [disabled]="pageForUnreservedData === 1">Prev</button>
 
-                <button *ngFor="let p of visiblePagesUnreserved" (click)="goToPageUnreservedData(p)" [class.active]="p === pageForUnreservedData">{{ p }}</button>
+            <button *ngFor="let p of visiblePagesUnreserved" (click)="goToPageUnreservedData(p)" [class.active]="p === pageForUnreservedData">{{ p }}</button>
 
-                <button (click)="goToPageUnreservedData(pageForUnreservedData + 1)" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
-
-
-              </div>
-
-              <!-- <div class="record-info">
-                {{ startUnreservedRecord }} - {{ endUnreservedRecord }} of {{ totalUnreservedRecords }}
-              </div>
-       
-              <div class="pagination-buttons">
-                <button (click)="goTOFirstUnreserved()" [disabled]="pageForUnreservedData === 1">First</button>
-                <button (click)="goToPrevUnreserved()" [disabled]="pageForUnreservedData === 1">Prev</button>
-                <button (click)="goToNextUnreserved()" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
-                <button (click)="goToLastUnreserved()" [disabled]="pageForUnreservedData === totalUnreservedPages">Last</button>
-              </div> -->
-            </div>
+            <button (click)="goToPageUnreservedData(pageForUnreservedData + 1)" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
 
 
           </div>
+
+          <!-- <div class="record-info">
+            {{ startUnreservedRecord }} - {{ endUnreservedRecord }} of {{ totalUnreservedRecords }}
+          </div>
+   
+          <div class="pagination-buttons">
+            <button (click)="goTOFirstUnreserved()" [disabled]="pageForUnreservedData === 1">First</button>
+            <button (click)="goToPrevUnreserved()" [disabled]="pageForUnreservedData === 1">Prev</button>
+            <button (click)="goToNextUnreserved()" [disabled]="pageForUnreservedData === totalUnreservedPages">Next</button>
+            <button (click)="goToLastUnreserved()" [disabled]="pageForUnreservedData === totalUnreservedPages">Last</button>
+          </div> -->
         </div>
+
+
  
   </div>
 </div>

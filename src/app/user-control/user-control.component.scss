@@ -82,19 +82,42 @@
   margin-right: 30px;
   margin-top: 30px;
   background-color: white;
-}
-
-.table-responsive {
-  overflow-x: auto;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .rule-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0px;
 }
 
-th {
-  position: relative;
+.rule-table tbody tr:last-child td {
+  border-bottom: none; /* Remove the bottom border of the last row */
+}
+
+.rule-table td, .rule-table th {
+  border-bottom: 1px solid #bbb; /* Default cell border */
+}
+
+.table-header th {
+  border-bottom: 1px solid #bbb; /* Stronger border for header */
+}
+
+.table-light td, .table-dark td {
+  border-bottom: 1px solid #bbb;
+}
+
+.rule-table td:first-child,
+.rule-table th:first-child {
+  border-left: none; /* Prevent left cell overlap */
+}
+
+.rule-table td:last-child,
+.rule-table th:last-child {
+  border-right: none; /* Prevent right cell overlap */
 }
 
 th i.bi-sliders {
